@@ -1,0 +1,120 @@
+#Secone{
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+:root {
+  font-size: 60px;
+}
+#seconeleft{
+  background-color: black;
+  float: left;
+  height: 100%;
+  width: 50%; /*vw (view port width) ==> 50vw*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#seconeright{
+  position: relative;
+  background-image: url("../../../assets/Images/0b3f0c522bc389dfaeddd1fde760d321.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+}
+#title{
+  font-size: 52px;
+
+  color: white;
+  width: 22rem;
+}
+#btnhost{
+  height: 45px;
+  position: absolute; /*According to the first parent that have a relative position*/
+  bottom: 30px;
+  right: 40px;
+}
+
+#Sectwo{
+  margin-top: 80px;
+  height: 300px; /*vh (view port height) ==> 100vw */
+}
+#Secthree{
+
+  background-color: black;
+  padding: 100px;
+  padding-top: 250px;
+  text-align: center;
+}
+#text3{
+
+  font-size: 4rem;
+  color: white;
+}
+#slot1{
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.slotanch{
+  margin: 40px;
+}
+.pre-inner{
+  width: 100%;
+}
+
+#Secfour{
+  margin-top: 40px;
+}
+#text4{
+  font-size: 52px;
+  color: black;
+  font-weight: 650;
+  padding-left: 50px;
+}
+
+#slots{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+#Secfive{
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+#secfiveright{
+  position: relative;
+  background-color: black;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#secfiveleft{
+  position: relative;
+  background-image: url("../../../assets/Images/Host.jpg");
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+}
+
+#btnhost2{
+  height: 45px;
+  position: absolute; /*According to the first parent that have a relative position*/
+  bottom: 30px;
+  right: 40px;
+}
+
+#carousel{
+  width: 70%;
+  height: 450px;
+  margin-left: 170px;
+}
+#carouselimg{
+  height: 450px;
+  width: 100%;
+}
