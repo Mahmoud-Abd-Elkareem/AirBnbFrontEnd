@@ -43,17 +43,16 @@
 </div>
 <div id="Secthree">
   <p id="text3">
-    Host your <select style="background-color: rgba(0, 0, 0, 0); color: white;border-style: hidden;">
-      <option  value="250" style="background-color: black;">Private property</option>
-      <option value="300" style="background-color: black;">Cabin</option>
-      <option value="400" style="background-color: black;">Yard</option>
-    </select>for <select style="background-color: rgba(0, 0, 0, 0); color: white;border-style: hidden;">
-      <option #occupation value="1" style="background-color: black;">1 guest</option>
-      <option value="2" style="background-color: black;">2 guest</option>
-      <option value="3" style="background-color: black;">3 guest</option>
-      <option value="4" style="background-color: black;">4 guest</option>
-    </select> in <input style="background-color: rgba(0, 0, 0, 0); color: white;border-style: hidden; width: 19.4rem;"  value="Alexandria"><br>
-    and earn up to 125$
+    Host your <select>
+      <option  value="250" >Private property</option>
+      <option value="300" >Cabin</option>
+      <option value="400">Yard</option>
+    </select>for
+     <select (change)="selectedOption($event)" [(ngModel)]="selectedOption" >
+      <option [value]="item.value" *ngFor="let item of guest" >{{item.name}}</option>
+    </select> in
+     <input value="Alexandria"><br>
+    and earn up to {{Price}}
 </div>
 <div id="Secfour">
   <p id="text4">

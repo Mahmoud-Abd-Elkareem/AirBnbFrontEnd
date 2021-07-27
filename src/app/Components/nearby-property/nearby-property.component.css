@@ -1,0 +1,41 @@
+img{
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+}
+#temp{
+width: 100%;
+}
+#carso{
+  width: 250px;
+}
+#title{
+font-size: 3rem;
+font-weight: 700;
+}
+#property{
+  width: 600px;
+  height: 225px;
+  border-top: .3px   rgba(0, 0, 0, 0.493) solid;
+  border-bottom: .3px   rgba(0, 0, 0, 0.493) solid;
+  padding: 20px;
+  display: flex;
+}
+
+#propdesc{
+  width: 350px;
+  padding: 10px;
+}
+#propname{
+  font-size: .8rem;
+}
+
+#rating{
+  position: relative;
+  top: 38px;
+}
+
+#price{
+  margin-left: 220px;
+  margin-bottom: 20px;
+}

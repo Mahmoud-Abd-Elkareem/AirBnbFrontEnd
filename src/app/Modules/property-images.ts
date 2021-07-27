@@ -1,3 +1,3 @@
 export class PropertyImages {
-  constructor(public PropertId:Number , public Image:string){}
+  constructor(public PropertId:number , public Image:string){}
 }
