@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
+import { RouterModule } from '@angular/router';
+import { FormsModule }   from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { PropertyListComponent } from './Components/Property/property-list/property-list.component';
 import { PropertyAddComponent } from './Components/Property/property-add/property-add.component';
@@ -16,10 +19,11 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { CityComponent } from './Components/city/city.component';
 import { CountryComponent } from './Components/country/country.component';
 import { HostingComponent } from './Components/hosting/hosting.component';
-import { RegisterLogInComponent } from './Components/register-log-in/register-log-in.component';
 
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NearbyPropertyComponent } from './Components/nearby-property/nearby-property.component';
+import { LoginComponent } from './Components/Account/login/login.component';
+import { RegisterComponent } from './Components/Account/register/register.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +41,16 @@ import { NearbyPropertyComponent } from './Components/nearby-property/nearby-pro
     HostingComponent,
     RegisterLogInComponent,
     NearbyPropertyComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

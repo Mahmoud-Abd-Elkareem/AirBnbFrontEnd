@@ -1,0 +1,6 @@
+body {
+    height: 900px;
+    font-family: "Lato", sans-serif;
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(135deg, #548db1 0%, #544d92 100%);
+}

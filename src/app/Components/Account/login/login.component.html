@@ -1,0 +1,54 @@
+<p>login works!</p>
+
+<div class="container ">
+    <div class="row justify-content-center">
+
+        <div class="col-md-12 col-lg-6">
+            
+            <div class="card my-5 pb-3">
+
+            <div class="card-body">
+                <a  routerLink="/account/register" class="float-end btn btn-outline-primary">Sign up</a>
+                <h4 class="card-title mb-4 mt-5">Login</h4>
+                <p>
+                    <a href="" class="btn form-control btn-outline-primary mb-2"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+                    <a href="" class="btn form-control btn-outline-danger"> <i class="fab fa-google"></i>   Login with Google</a>
+                </p>
+                <hr>
+                <form #loginForm="ngForm" (ngSubmit)="Login(loginForm)">
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" name="email" #email='ngModel' [(ngModel)]="UserEmail" placeholder="Email or phone number" aria-label="email" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i> </span>
+                        <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="UserPassword" placeholder="******" aria-label="password" aria-describedby="basic-addon1">
+                    </div>                               
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block form-control"> Login  </button>
+                            </div> <!-- form-group// -->
+                        </div>
+                        <div class="col-md-6 text-end pt-1">
+                            <a class="small" href="#">Forgot password?</a>
+                        </div>                                            
+                    </div> <!-- .row// -->    
+
+                </form>
+            </div>
+
+            </div> <!-- card.// -->
+            
+        </div> <!-- col.// -->
+    </div> <!-- row.// -->
+    
+</div> 
+
+    <p>email value: {{ email.value }}</p>
+    <p>First name valid: {{ password.value }}</p>
+    <p>Form value: {{ loginForm.value | json }}</p>
+    <p>Form valid: {{ loginForm.valid | json }}</p>
