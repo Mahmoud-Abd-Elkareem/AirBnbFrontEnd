@@ -40,6 +40,21 @@
   margin-top: 80px;
   height: 300px; /*vh (view port height) ==> 100vw */
 }
+select{
+  background-color: rgba(0, 0, 0, 0);
+   color: white;
+   border-style: hidden;
+}
+
+input{
+  background-color: rgba(0, 0, 0, 0);
+   color: white;
+   border-style: hidden;
+    width: 19.4rem;
+}
+option{
+  background-color: black;
+}
 #Secthree{
 
   background-color: black;
@@ -117,4 +132,5 @@
 #carouselimg{
   height: 450px;
   width: 100%;
+  border-radius: 15px;
 }

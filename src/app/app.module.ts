@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { HostingComponent } from './Components/hosting/hosting.component';
 import { RegisterLogInComponent } from './Components/register-log-in/register-log-in.component';
 
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NearbyPropertyComponent } from './Components/nearby-property/nearby-property.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +35,15 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CityComponent,
     CountryComponent,
     HostingComponent,
-    RegisterLogInComponent
+    RegisterLogInComponent,
+    NearbyPropertyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

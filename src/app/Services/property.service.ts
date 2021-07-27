@@ -13,7 +13,6 @@ const httpOptions={
 })
 export class PropertyService {
   private apiprop ='http://localhost:5000/property'
-  prop : Property= new Property(1,1,1,"","","",1,1,1,"","","","","",1)
     GetAllProperty() : Observable<Property[]>{
       return this.http.get<Property[]>("http://localhost:5000/property");
     }
