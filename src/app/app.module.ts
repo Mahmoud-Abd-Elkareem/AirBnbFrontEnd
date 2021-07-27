@@ -39,8 +39,7 @@ import { RegisterComponent } from './Components/Account/register/register.compon
     CityComponent,
     CountryComponent,
     HostingComponent,
-    RegisterLogInComponent,
-    NearbyPropertyComponent
+    NearbyPropertyComponent,
     LoginComponent,
     RegisterComponent
   ],
