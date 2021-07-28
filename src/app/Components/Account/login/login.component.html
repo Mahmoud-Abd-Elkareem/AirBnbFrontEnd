@@ -1,13 +1,14 @@
-<p>login works!</p>
+<app-landing-page-navbar-component></app-landing-page-navbar-component>
+
 
 <div class="container ">
     <div class="row justify-content-center">
 
         <div class="col-md-12 col-lg-6">
-            
-            <div class="card my-5 pb-3">
 
-            <div class="card-body">
+            <div class="card my-5 py-5  border-0">
+
+            <div class="card-body my-5 py-5">
                 <a  routerLink="/account/register" class="float-end btn btn-outline-primary">Sign up</a>
                 <h4 class="card-title mb-4 mt-5">Login</h4>
                 <p>
@@ -25,8 +26,8 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i> </span>
                         <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="UserPassword" placeholder="******" aria-label="password" aria-describedby="basic-addon1">
-                    </div>                               
-                    
+                    </div>
+
                     <div class="row mt-3">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -35,20 +36,17 @@
                         </div>
                         <div class="col-md-6 text-end pt-1">
                             <a class="small" href="#">Forgot password?</a>
-                        </div>                                            
-                    </div> <!-- .row// -->    
+                        </div>
+                    </div> <!-- .row// -->
 
                 </form>
             </div>
 
             </div> <!-- card.// -->
-            
+
         </div> <!-- col.// -->
     </div> <!-- row.// -->
-    
-</div> 
 
-    <p>email value: {{ email.value }}</p>
-    <p>First name valid: {{ password.value }}</p>
-    <p>Form value: {{ loginForm.value | json }}</p>
-    <p>Form valid: {{ loginForm.valid | json }}</p>
+</div>
+
+   

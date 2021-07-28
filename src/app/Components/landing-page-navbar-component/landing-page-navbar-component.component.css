@@ -1,6 +1,8 @@
-
+body{
+  background-color: transparent;
+}
 .color{
-  background-color:black;
+  background-color:rgb(3, 3, 58) !important;
   position: fixed;
   z-index: 11;
 }
@@ -11,7 +13,6 @@
   Color: var(--color);
   font-family: var(--font-family);
   font-size: 12px;
-  /* margin: 15%; */
   padding: 30px ;
 
 }

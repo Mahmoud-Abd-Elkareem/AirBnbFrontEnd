@@ -12,7 +12,7 @@ const httpOptions={
   providedIn: 'root'
 })
 export class PropertyService {
-  private apiprop ='http://localhost:5000/property'
+    private apiprop ='http://localhost:5000/property'
     GetAllProperty() : Observable<Property[]>{
       return this.http.get<Property[]>("http://localhost:5000/property");
     }

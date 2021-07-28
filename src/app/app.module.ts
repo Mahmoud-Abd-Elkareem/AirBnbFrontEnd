@@ -24,6 +24,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NearbyPropertyComponent } from './Components/nearby-property/nearby-property.component';
 import { LoginComponent } from './Components/Account/login/login.component';
 import { RegisterComponent } from './Components/Account/register/register.component';
+import { LandingPageNavbarComponentComponent } from './Components/landing-page-navbar-component/landing-page-navbar-component.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { RegisterComponent } from './Components/Account/register/register.compon
     HostingComponent,
     NearbyPropertyComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LandingPageNavbarComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +52,11 @@ import { RegisterComponent } from './Components/Account/register/register.compon
     HttpClientModule,
     NgbModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ],
   providers: [],
+  // declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
