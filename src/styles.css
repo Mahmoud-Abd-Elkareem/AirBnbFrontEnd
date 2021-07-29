@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style fil*/
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/saga-blue/theme.css"; /*change this with a nother theme if you want*/
+@import "../node_modules/primeng/resources/primeng.min.css";
+
 :root{
   --color:white;
   --font-family:'Roboto', sans-serif;

@@ -21,11 +21,19 @@ import { CountryComponent } from './Components/country/country.component';
 import { HostingComponent } from './Components/hosting/hosting.component';
 
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import {CalendarModule} from 'primeng/calendar';
+
 import { NearbyPropertyComponent } from './Components/nearby-property/nearby-property.component';
 import { LoginComponent } from './Components/Account/login/login.component';
 import { RegisterComponent } from './Components/Account/register/register.component';
 import { LandingPageNavbarComponentComponent } from './Components/landing-page-navbar-component/landing-page-navbar-component.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PersonalInfoComponent } from './Components/account-settings/personal-info/personal-info.component';
+import { PaymentInfoComponent } from './Components/account-settings/payment-info/payment-info.component';
+
 
 @NgModule({
   declarations: [
@@ -44,16 +52,24 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NearbyPropertyComponent,
     LoginComponent,
     RegisterComponent,
-    LandingPageNavbarComponentComponent
+    LandingPageNavbarComponentComponent,
+    PersonalInfoComponent,
+    PaymentInfoComponent
+
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
     FormsModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ButtonModule,
+    DropdownModule,
+    InputNumberModule,
+    CalendarModule
   ],
   providers: [],
   // declarations: [AppComponent],

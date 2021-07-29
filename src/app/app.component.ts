@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component ,  OnInit} from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 @Component({
@@ -6,12 +7,16 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'AirBnbProject';
   faCoffee = faCoffee;
 
 
-
-  constructor() {
+  constructor(private primengConfig: PrimeNGConfig) {
   }
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
+
 }

@@ -1,0 +1,151 @@
+<p>personal-info works!</p>
+
+<div class="container ">
+    <div class="row justify-content-center">
+
+        <!-- Personal Info -->
+        <div class="col-md-12 col-lg-6">
+
+            <div class="card bg-light mt-2">
+                <div class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Personal info</h4>
+
+                    <form #PInfoForm="ngForm" (ngSubmit)="UpdatePersonalInfo()">
+
+                        <label for="firstName" class="form-label">First name : </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" id="firstName" name="firstName" #firstName="ngModel" [(ngModel)]="userInfo.firstName" placeholder="First name">
+                        </div>
+
+                        <label for="lastName" class="form-label">Last name : </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" id="lastName" name="lastName" #lastName="ngModel" [(ngModel)]="userInfo.lastName" placeholder="First name">
+                        </div>
+
+                        <label for="email" class="form-label">Email : </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                            <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="userInfo.email" placeholder="Email address" aria-label="email">
+                        </div>
+
+                        <label for="email" class="form-label">Phone : </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
+
+                            <select class="custom-select" style="max-width: 120px;">
+                                <option selected="">+18</option>
+                                <option value="1">+20</option>
+                                <option value="2">+198</option>
+                                <option value="3">+701</option>
+                            </select>
+                            
+                            <!-- <p-inputNumber name="phone" [(ngModel)]="user.phone" mode="decimal" class="p-inputtext-sm" ></p-inputNumber> -->
+                             <input type="text" name="phone" #phone="ngModel" [(ngModel)]="userInfo.phone" class="form-control" placeholder="Phone number" > 
+                        </div> 
+
+                        <label for="birthDate" class="form-label">Birth Date : </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                            <!-- <p-calendar name="birthDate" [(ngModel)]="user.birthDate" [monthNavigator]="true" [yearNavigator]="true" yearRange="1950:2030"></p-calendar> -->
+                            <input type="date" class="form-control" name="birthDate" [(ngModel)]="userInfo.birthDate" #birthDate="ngModel">
+                        </div>
+
+                        <label for="gender" class="form-label">Gender : </label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-x fa-user"></i></span>
+                            <select name="gender" [(ngModel)]="userInfo.gender" #gender="ngModel" class="form-control">
+                                <option value="-1" selected>Select gender</option>
+                                <option *ngFor="let gender of genders" [value]="gender.value">{{gender.name}}</option>
+                            </select>
+                            <!-- <p-dropdown name="gender" [options]="genders" [(ngModel)]="user.gender" optionLabel="name" optionValue="value"></p-dropdown> -->
+                        </div>
+
+                        <label for="gender" class="form-label">User Image : </label>
+                        <div class="custom-file mb-3">
+                            <input type="file" name="userImage" [(ngModel)]="userInfo.userImage" #userImage="ngModel" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+
+                        <div class="text-center mb-3">
+                            <img src="../../../../assets/Images/person2.jpg" style="max-width: 100%;" class="rounded img-thumbnail" alt="...">
+                        </div>
+
+                        <label for="gender" class="form-label">Country : </label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-flag"></i></span>
+                            <select name="country" [(ngModel)]="userInfo.country" #country="ngModel" class="form-control">
+                                <option value="-1" selected>Select country</option>
+                                <option *ngFor="let country of countires" [value]="country">{{country}}</option>
+                            </select>
+                            <!-- <p-dropdown name="gender" [options]="genders" [(ngModel)]="user.gender" optionLabel="name" optionValue="value"></p-dropdown> -->
+                        </div>
+
+                        <label for="city" class="form-label">City : </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-map"></i></span>
+                            <input type="text" class="form-control" name="city" #city="ngModel" [(ngModel)]="userInfo.city" placeholder="City">
+                        </div>
+
+                        <label for="street" class="form-label">Street : </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-street-view"></i></span>
+                            <input type="text" class="form-control" name="street" #street="ngModel" [(ngModel)]="userInfo.street" placeholder="Street">
+                        </div>
+
+                        <label for="zipCode" class="form-label">Zip code : </label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-location-arrow"></i></span>
+                            <input type="text" class="form-control" name="zipCode" #zipCode="ngModel" [(ngModel)]="userInfo.zipCode" placeholder="Zip code">
+                        </div>
+                       
+                        <div class="form-group mb-3">
+                            <button pButton pRipple type="submit" class="btn-block" label="Update"></button>
+                        </div> 
+
+                    </form>
+                </div>
+            </div>
+                
+        </div> 
+
+        <!-- Security Info -->
+        <div class="col-md-12 col-lg-6">
+
+            <div class="card bg-light mt-2">
+                <div class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Security info</h4>
+
+                    <form #securityForm="ngForm" (ngSubmit)="UpdatePassword(confirmPassword.value)">
+
+                        <label for="oldpassword" class="form-label">Old password : </label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                            <input type="password" name="oldPassword" #oldPassword="ngModel" [(ngModel)]="userSecurityInfo.oldPassword"  class="form-control"  placeholder="Old password">
+                        </div>
+
+                        <label for="oldpassword" class="form-label">New password : </label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                            <input type="password" name="newPassword" class="form-control" #newPassword="ngModel" [(ngModel)]="userSecurityInfo.newPassword"  placeholder="New password">
+                        </div>
+
+                        <label for="oldpassword" class="form-label">Confirm password : </label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                            <input type="password" #confirmPassword  name="confirmPassword" class="form-control" placeholder="Confirm password">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn-block btn btn-danger">Update</button>
+                        </div> 
+                        
+                    </form>
+                </div>
+            </div>
+                
+        </div> 
+
+    </div>
+</div> 

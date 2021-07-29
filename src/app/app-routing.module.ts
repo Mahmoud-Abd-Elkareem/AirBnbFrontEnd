@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PaymentInfoComponent } from './Components/account-settings/payment-info/payment-info.component';
+import { PersonalInfoComponent } from './Components/account-settings/personal-info/personal-info.component';
 import { LoginComponent } from './Components/Account/login/login.component';
 import { RegisterComponent } from './Components/Account/register/register.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
@@ -11,10 +13,15 @@ const routes: Routes = [
   {path:'home', component: HomePageComponent},
   {path:'hosting', component: HostingComponent},
   {path:'property/:id', component: PropertyDetailsComponent},
-  {path:'account', children: [ // remember to authenticate the user
+  {path:'account', children: [ // remember to authenticate the user after login and register
     {path:'', component: LoginComponent},
     {path:'login', component: LoginComponent},
     {path:'register', component: RegisterComponent},
+  ]},
+  {path:'account-settings', children: [ // remember to check if user exists before accessing
+    {path:'', component: PersonalInfoComponent},
+    {path:'personal-info', component: PersonalInfoComponent},
+    {path:'payment-info', component: PaymentInfoComponent},
   ]}
 ];
 
