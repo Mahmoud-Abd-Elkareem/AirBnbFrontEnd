@@ -33,6 +33,7 @@ import { LandingPageNavbarComponentComponent } from './Components/landing-page-n
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PersonalInfoComponent } from './Components/account-settings/personal-info/personal-info.component';
 import { PaymentInfoComponent } from './Components/account-settings/payment-info/payment-info.component';
+import { PayConfirmComponent } from './Components/Property/property-details/pay-confirm/pay-confirm.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { PaymentInfoComponent } from './Components/account-settings/payment-info
     RegisterComponent,
     LandingPageNavbarComponentComponent,
     PersonalInfoComponent,
-    PaymentInfoComponent
+    PaymentInfoComponent,
+    PayConfirmComponent
 
   ],
   imports: [
