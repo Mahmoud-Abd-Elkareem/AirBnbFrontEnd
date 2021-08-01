@@ -20,4 +20,7 @@
     left: 0;
     z-index: 1;
 }
+:host ::ng-deep .p-password input {
+    width: 20rem;
+  }
 

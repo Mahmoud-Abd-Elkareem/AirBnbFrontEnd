@@ -15,13 +15,13 @@
                         <label for="firstName" class="form-label">First name : </label>
                         <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" id="firstName" name="firstName" #firstName="ngModel" [(ngModel)]="userInfo.firstName" placeholder="First name">
+                            <input type="text" class="form-control" id="firstName" name="fname" #fname="ngModel" [(ngModel)]="userInfo.fname" placeholder="First name">
                         </div>
 
                         <label for="lastName" class="form-label">Last name : </label>
                         <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" id="lastName" name="lastName" #lastName="ngModel" [(ngModel)]="userInfo.lastName" placeholder="First name">
+                            <input type="text" class="form-control" id="lastName" name="lname" #lname="ngModel" [(ngModel)]="userInfo.lname" placeholder="Last name">
                         </div>
 
                         <label for="email" class="form-label">Email : </label>
@@ -30,7 +30,7 @@
                             <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="userInfo.email" placeholder="Email address" aria-label="email">
                         </div>
 
-                        <label for="email" class="form-label">Phone : </label>
+                        <label for="phoneNumber" class="form-label">Phone number : </label>
                         <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
 
@@ -42,7 +42,7 @@
                             </select>
                             
                             <!-- <p-inputNumber name="phone" [(ngModel)]="user.phone" mode="decimal" class="p-inputtext-sm" ></p-inputNumber> -->
-                             <input type="text" name="phone" #phone="ngModel" [(ngModel)]="userInfo.phone" class="form-control" placeholder="Phone number" > 
+                             <input type="text" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="userInfo.phoneNumber" class="form-control" placeholder="Phone number" > 
                         </div> 
 
                         <label for="birthDate" class="form-label">Birth Date : </label>
@@ -62,17 +62,28 @@
                             <!-- <p-dropdown name="gender" [options]="genders" [(ngModel)]="user.gender" optionLabel="name" optionValue="value"></p-dropdown> -->
                         </div>
 
-                        <label for="gender" class="form-label">User Image : </label>
+                        <label for="gender" class="form-label">Profile picture : </label>
                         <div class="custom-file mb-3">
-                            <input type="file" name="userImage" [(ngModel)]="userInfo.userImage" #userImage="ngModel" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
+                            <input type="file" name="image" #fileUploader class="custom-file-input" (change)="onImageChange($event,fileUploader)" accept=".png, .jpg, .jpeg" >
+                            <label class="custom-file-label" for="customFile">Upload Picture</label>
                         </div>
 
-                        <div class="text-center mb-3">
-                            <img src="../../../../assets/Images/person2.jpg" style="max-width: 100%;" class="rounded img-thumbnail" alt="...">
+                        <div class="text-center mb-3" style="display: none;">
+                            <img name="dispalyedImage" #dispalyedImage src="../../../../assets/Images/avatar-image.png" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
                         </div>
 
-                        <label for="gender" class="form-label">Country : </label>
+                        <div *ngIf="userInfo.image; else noImage " class="text-center mb-3" style="max-width:225px; margin:auto;">
+                            <!-- <img name="dispalyedImage" #dispalyedImage [src]="data:image/*;base64,userInfo.image" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture"> -->
+                            <img name="dispalyedImage" #dispalyedImage [src]="DisplayedImageUrl" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
+                        </div>
+
+                        <ng-template #noImage>
+                            <div class="text-center mb-3" style="max-width:225px; margin:auto;">
+                                <img name="dispalyedImage" #dispalyedImage [src]="DisplayedImageUrl" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
+                            </div>
+                        </ng-template>
+
+                        <label for="Country" class="form-label">Country : </label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-flag"></i></span>
                             <select name="country" [(ngModel)]="userInfo.country" #country="ngModel" class="form-control">
@@ -117,24 +128,44 @@
                 <div class="card-body mx-auto" style="max-width: 400px;">
                     <h4 class="card-title mt-3 text-center">Security info</h4>
 
-                    <form #securityForm="ngForm" (ngSubmit)="UpdatePassword(confirmPassword.value)">
+                    <form #securityForm="ngForm" (ngSubmit)="UpdatePassword()">
 
                         <label for="oldpassword" class="form-label">Old password : </label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
-                            <input type="password" name="oldPassword" #oldPassword="ngModel" [(ngModel)]="userSecurityInfo.oldPassword"  class="form-control"  placeholder="Old password">
+                            <input type="password" name="oldPassword" #oldPassword="ngModel" [(ngModel)]="userSecurityInfo.currentPassword"  class="form-control"  placeholder="Old password">
                         </div>
 
                         <label for="oldpassword" class="form-label">New password : </label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
-                            <input type="password" name="newPassword" class="form-control" #newPassword="ngModel" [(ngModel)]="userSecurityInfo.newPassword"  placeholder="New password">
+                            <!-- <input type="password" name="newPassword" class="form-control" #newPassword="ngModel" [(ngModel)]="userSecurityInfo.newPassword"  placeholder="New password"> -->
+                             
+                            <p-password name="newPassword" #newPassword="ngModel" [(ngModel)]="userSecurityInfo.newPassword" [toggleMask]="true" placeholder="New password"
+                            mediumRegex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{4,})"
+                            strongRegex="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^\&*\)\(+=._-])(?=.{6,})">
+                                <ng-template pTemplate="header">
+                                    <h6>Pick a password</h6>
+                                </ng-template>
+                                <ng-template pTemplate="footer">
+                                    <p-divider></p-divider>
+                                    <p class="p-mt-2">Suggestions</p>
+                                    <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                                        <li>At least one lowercase</li>
+                                        <li>At least one uppercase</li>
+                                        <li>At least one numeric</li>
+                                        <li>At least one special character</li>
+                                        <li>Minimum 6 characters</li>
+                                    </ul>
+                                </ng-template>
+                            </p-password>
+
                         </div>
 
                         <label for="oldpassword" class="form-label">Confirm password : </label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
-                            <input type="password" #confirmPassword  name="confirmPassword" class="form-control" placeholder="Confirm password">
+                            <input type="password" #confirmPassword  name="confirmPassword" [(ngModel)]="userSecurityInfo.ConfirmNewPassword" class="form-control" placeholder="Confirm password">
                         </div>
 
                         <div class="form-group mb-3">
@@ -149,3 +180,5 @@
 
     </div>
 </div> 
+{{userInfo | json}}
+{{newProfileImage | json}}
