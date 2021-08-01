@@ -3,8 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { GoogleMapsModule } from '@angular/google-maps'
+import {GMapModule} from 'primeng/gmap';
+import { GoogleMapsAngularModule } from 'google-maps-angular';
+import {DialogModule} from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { PropertyListComponent } from './Components/Property/property-list/property-list.component';
@@ -49,7 +53,12 @@ import { RegisterComponent } from './Components/Account/register/register.compon
     HttpClientModule,
     NgbModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    GoogleMapsModule,
+    GMapModule,
+    GoogleMapsAngularModule.forRoot({googleMapsKey: 'AIzaSyC6SjpXEUcksQ9CEFKRZx0Jq0Atass0d9E'}),
+    DialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

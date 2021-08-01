@@ -1,1 +1,46 @@
-<p>property-add works!</p>
+<div id="left-side">
+  <p id="title">Welcome back </p>
+</div>
+<div id="right-side">
+<form #r="ngForm" >
+  <div class="mb-3" id="firstpage">
+    <label for="exampleFormControlInput1" class="form-label">Property Name</label>
+    <input type="text" #pname="ngModel" [(ngModel)]="prop.PropertyName" name="PropertyName" class="form-control" id="exampleFormControlInput1" placeholder="Enter the name of property you want it to be shown by"><br>
+    <!-- <a href="#Secpage" class="btn badge-dark">Next</a> -->
+    <button href="#Secpage" class="btn badge-dark">Next</button>
+  </div>
+
+  <div class="mb-3" id="Secpage">
+    <label for="exampleFormControlTextarea1" class="form-label">Property Discription</label>
+    <textarea class="form-control"  #pdisc="ngModel" [(ngModel)]="prop.PropertyDescription" name="PropertyDescription" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+    <button  href="#thirdpage" class="btn badge-dark">Next</button>
+  </div>
+
+  <div id="thirdpage">
+    <p-gmap #gmap [style]="{'width':'100%','height':'320px', 'margin-bottom': '1em'}" [options]="options" [overlays]="overlays"
+    (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)" ></p-gmap>
+
+<button type="button" pButton label="Clear" icon="pi pi-times" (click)="clear()" style="margin-right:.25em">Clear Marks</button>
+
+
+<p-dialog showEffect="fade" [(visible)]="dialogVisible" header="New Location" [style]="{width: '300px'}">
+ <div class="p-grid p-fluid" *ngIf="selectedPosition">
+     <div class="p-col-2"><label for="title">Label</label></div>
+     <div class="p-col-10"><input  type="text" pInputText id="title"  name="PropertyName" [(ngModel)]="markerTitle" [style]="{width: '300px'}"></div>
+
+     <div class="p-col-2"><label for="lat">Lat</label></div>
+     <div class="p-col-10"><input id="lat" type="text" readonly pInputText  name="Propertylatitude" [(ngModel)]="prop.Propertylatitude" [ngModel]="selectedPosition.lat()"></div>
+
+     <div class="p-col-2"><label for="lng">Lng</label></div>
+     <div class="p-col-10"><input id="lng" type="text" readonly pInputText  name="PropertyLongitude" [(ngModel)]="prop.PropertyLongitude" [ngModel]="selectedPosition.lng()"></div>
+ </div><br>
+ <ng-template pTemplate="footer">
+     <div>
+         <button type="button" pButton label="Add Marker" icon="pi-plus" (click)="addMarker()">Add Marker</button>
+     </div>
+ </ng-template>
+</p-dialog>
+  </div>
+  <button class="btn badge-danger" (click)="saveprop()">Submit</button>
+</form>
+</div>

@@ -14,32 +14,32 @@ const httpOptions={
 export class PropertyService {
   private apiprop ='http://localhost:5000/property'
     GetAllProperty() : Observable<Property[]>{
-      return this.http.get<Property[]>("http://localhost:5000/property");
+      return this.http.get<Property[]>("http://localhost:3000/property");
     }
 
     GetProperty(id:number) : Observable<Property>{
-      return this.http.get<Property>("http://localhost:5000/property/"+id)
+      return this.http.get<Property>("http://localhost:3000/property/"+id)
     }
 
     GetPropertybycity(prop:Property) : Observable<Property[]>{
-      return this.http.get<Property[]>("http://localhost:5000/property/"+prop.City)
+      return this.http.get<Property[]>("http://localhost:3000/property/"+prop.City)
     }
 
     GetPropertybycountry(prop:Property) : Observable<Property[]>{
-      return this.http.get<Property[]>("http://localhost:5000/property/"+prop.Country)
+      return this.http.get<Property[]>("http://localhost:3000/property/"+prop.Country)
     }
 
     DeleteProperty(id:number) : Observable<Property>{
-      return this.http.delete<Property>("http://localhost:5000/property/"+id)
+      return this.http.delete<Property>("http://localhost:3000/property/"+id)
     }
 
     AddProperty(prop:Property) : Observable<Property>{
-      return this.http.post<Property>("http://localhost:5000/property",prop)
+      return this.http.post<Property>("http://localhost:3000/property",prop)
     }
 
     EditProperty(prop:Property) : Observable<Property>{
 
-      return this.http.put<Property>("http://localhost:5000/property/"+prop.PropertyID+"/"+prop.PropertyHostID,prop,httpOptions)
+      return this.http.put<Property>("http://localhost:3000/property/"+prop.PropertyID+"/"+prop.PropertyHostID,prop,httpOptions)
     }
 
   constructor(private http:HttpClient) { }
