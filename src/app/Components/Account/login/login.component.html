@@ -16,16 +16,16 @@
                     <a href="" class="btn form-control btn-outline-danger"> <i class="fab fa-google"></i>   Login with Google</a>
                 </p>
                 <hr>
-                <form #loginForm="ngForm" (ngSubmit)="Login(loginForm)">
+                <form #loginForm="ngForm" (ngSubmit)="Login()">
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">@</span>
-                        <input type="text" class="form-control" name="email" #email='ngModel' [(ngModel)]="UserEmail" placeholder="Email or phone number" aria-label="email" aria-describedby="basic-addon1">
+                        <input type="email" class="form-control" name="email" #email='ngModel' [(ngModel)]="user.email" placeholder="Email or user name" aria-label="email" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i> </span>
-                        <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="UserPassword" placeholder="******" aria-label="password" aria-describedby="basic-addon1">
+                        <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="user.password" placeholder="******" aria-label="password" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="row mt-3">
@@ -48,5 +48,4 @@
     </div> <!-- row.// -->
 
 </div>
-
    

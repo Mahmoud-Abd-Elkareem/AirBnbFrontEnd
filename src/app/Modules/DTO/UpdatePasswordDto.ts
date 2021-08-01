@@ -1,5 +1,6 @@
 export class UpdatePasswordDto {
     email!:String;
-    oldPassword!:string;
+    currentPassword!:string;
     newPassword!:string;
+    ConfirmNewPassword!:string
 }

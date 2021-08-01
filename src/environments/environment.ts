@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl:'https://localhost:44397/'
+  apiUrl:'https://localhost:44351',
+  auth_token_key: 'airbnb_auth_token',
+  autho_token_value: localStorage.getItem('airbnb_auth_token')
 };
 
 /*
