@@ -205,30 +205,18 @@
 
 
     </div>
-    <div class="row">
+
+    <div class="row" *ngFor='let item of people'>
         <div class="col">
             <img src="../../../../assets/Images/bgimg1.png" alt="" class="rateimg">
-            <p style="font-weight: bold; display: inline;margin-left: 10px;"> namee </p>
+            <p style="font-weight: bold; display: inline;margin-left: 10px;"> {{item.name}} </p>
             <p style="margin-top: 15px;"> Alessandro was very informative and welcoming. He gave me a great walk though and told me all about the amenities available. The listing was everything AND MORE! I'd definitely stay here again!</p>
 
         </div>
         <div class="col">
             <img src="../../../../assets/Images/bgimg1.png" alt="" class="rateimg">
-            <p style="font-weight: bold; display: inline;margin-left: 10px;"> namee </p>
+            <p style="font-weight: bold; display: inline;margin-left: 10px;"> {{item.name}} </p>
             <p style="margin-top: 15px;"> Alessandro was very informative and welcoming. He gave me a great walk though and told me all about the amenities available. The listing was everything AND MORE! I'd definitely stay here again!</p>
 
         </div>
-        <div class="row">
-            <div class="col">
-                <img src="../../../../assets/Images/bgimg1.png" alt="" class="rateimg">
-                <p style="font-weight: bold; display: inline;margin-left: 10px;"> namee </p>
-                <p style="margin-top: 15px;"> Alessandro was very informative and welcoming. He gave me a great walk though and told me all about the amenities available. The listing was everything AND MORE! I'd definitely stay here again!</p>
-
-            </div>
-            <div class="col">
-                <img src="../../../../assets/Images/bgimg1.png" alt="" class="rateimg">
-                <p style="font-weight: bold; display: inline;margin-left: 10px;"> namee </p>
-                <p style="margin-top: 15px;"> Alessandro was very informative and welcoming. He gave me a great walk though and told me all about the amenities available. The listing was everything AND MORE! I'd definitely stay here again!</p>
-
-            </div>
-        </div>
+    </div>

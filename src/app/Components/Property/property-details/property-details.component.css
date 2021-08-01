@@ -223,6 +223,14 @@ body {
     margin: 15px;
 }
 
+.stars li :hover {
+    color: orange;
+}
+
+.stars li :focus {
+    color: orange;
+}
+
 .rateimg {
     border-radius: 50%;
     width: 50px;
