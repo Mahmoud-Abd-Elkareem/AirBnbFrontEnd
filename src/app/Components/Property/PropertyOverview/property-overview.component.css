@@ -1,0 +1,55 @@
+.header , .header h3{
+  font-family: var(--font-family);
+}
+.imgsec{
+  text-align: center;
+  width: 100%;
+}
+.img1,.img2{
+  width: 47%;
+    margin: 2px;
+    margin-bottom: 3px;
+    image-rendering: pixelated;
+    object-fit: cover;
+    height: 363px;
+
+}
+.img3{
+  width: 95%;
+  image-rendering: pixelated;
+  object-fit: cover;
+  height: 334px;
+
+}
+.img1:hover ,.img2:hover,.img3:hover{
+  padding: 2px;
+  transition: 0.5s ease-in-out;
+}
+@media(max-width: 280px){
+  .img1,.img2,.img3{
+    width: 100%;
+    margin: 0px;
+}}
+@media (max-width: 992px) {
+  .img1,.img2,.img3{
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
+}}
+
+/*
+*/
+/*
+*/
+/*
+*/
+.padding{
+  margin-top: 100px;
+}
+
+/*
+*/
+/*
+*/
+/*
+*/

@@ -33,6 +33,7 @@ import { LandingPageNavbarComponentComponent } from './Components/landing-page-n
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PersonalInfoComponent } from './Components/account-settings/personal-info/personal-info.component';
 import { PaymentInfoComponent } from './Components/account-settings/payment-info/payment-info.component';
+import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { PaymentInfoComponent } from './Components/account-settings/payment-info
     RegisterComponent,
     LandingPageNavbarComponentComponent,
     PersonalInfoComponent,
-    PaymentInfoComponent
+    PaymentInfoComponent,
+    PropertyOverviewComponent
 
   ],
   imports: [
@@ -69,7 +71,7 @@ import { PaymentInfoComponent } from './Components/account-settings/payment-info
     ButtonModule,
     DropdownModule,
     InputNumberModule,
-    CalendarModule
+    CalendarModule,
   ],
   providers: [],
   // declarations: [AppComponent],

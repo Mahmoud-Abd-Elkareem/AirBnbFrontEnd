@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-3">
       <div class="justify-content-start logo">
-        <img src="../../../assets/Images/bglogo1.png"class="bglogo1" alt="">
+        <a routerLink="AirBnbFrontEnd\src\app\Components\home"><img src="../../../assets/Images/bglogo1.png"class="bglogo1" alt=""></a>
     </div>
     </div>
     <div class="col-9">
@@ -11,11 +11,20 @@
           <a class="nav-link" href="#">English</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link active" href="#">Become a host</a>
+          <a class="nav-link active" href="\hosting">Become a host</a>
         </li>
+        <!-- dropdown -->
         <li class="nav-item">
-          <a class="nav-link" href="#">Log in</a>
+          <a class="nav-link" routerLink="#" (click)="loginstatus()">
+             {{islogin ? "Log in" : "Log out"}}
+          </a>
         </li>
+        <!-- <li *ngIf="login" class="nav-item">
+          <a class="nav-link" href="#">Log out</a>
+        </li>
+        <li *ngIf="!login" class="nav-item">
+          <a class="nav-link" href="#">Log in</a>
+        </li> -->
       </ul>
   </div>
 </div>

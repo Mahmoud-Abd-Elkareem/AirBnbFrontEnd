@@ -5,19 +5,21 @@
 * {
   box-sizing: border-box;
 }
-
+.col-1,.col-2,.col-3,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+padding-right: 0 !important;
+padding-left: 0 !important;
+}
 header {
   margin: 0;
   /* font-family: ro; */
   overflow-x: hidden;
-
 }
 .title{
 padding-bottom: 0 !important;
 }
 .header {
   /* text-align: center; */
-  padding: 32px;
+  padding-top: 32px;
 }
 
 .row {
@@ -167,14 +169,55 @@ body{
 .number{
   display: inline;
 }
+.hostperson{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  image-rendering: pixelated;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+.hostname{
+  display: inline;
+  padding: 35px 20px;
+  font-family: var(--font-family);
+}
+.hostcol{
+  justify-content: space-between;
+}
+.telhost{
+  padding: 88.5px 20px;
+
+}
+section{
+  margin-top: 50px;
+}
+.limitTextHeight {
+  height: 20px;
+  overflow: hidden;
+}
+.readmorebtn{
+  background-color:transparent;
+  border: 0px solid;
+  margin: 0px;
+  padding: 0px;
+  /* transition: 0 ease-in-out; */
+}
+
 @media(max-width: 280px){
     .form{
         border: 2px solid black;
+    }
+    .telhost{
+      padding: 20px 20px;
     }
 }
 @media (max-width: 992px) {
     .form{
       box-shadow: rgba(255, 69, 69, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px !important;
+    }
+    .telhost{
+      padding: 20px 20px;
     }
  }
 
