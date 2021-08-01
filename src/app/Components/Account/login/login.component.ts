@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
             console.log(data.token);
             localStorage.removeItem(environment.auth_token_key);
             localStorage.setItem(environment.auth_token_key, data.token);
-            this.router.navigateByUrl('home');
+            // this.router.navigateByUrl('home');
+            location.href = `${location.origin}`; // to enforce page reloading to update the navbar
           } ,
           (error:any)=> {
             console.log(error);
