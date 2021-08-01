@@ -34,6 +34,6 @@ export class GlobalService {
   }
 
   IsLoggedIn() {
-    return environment.autho_token_value !== null && environment.autho_token_value != null;
+   return environment.autho_token_value !== null && environment.autho_token_value != null && environment.autho_token_value != "";
   }
 }

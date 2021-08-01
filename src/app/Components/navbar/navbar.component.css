@@ -13,13 +13,17 @@
   font-size: 12px;
   /* margin: 15%; */
   padding: 30px ;
+  text-decoration: none;
+  cursor: pointer;
 
 }
 .bglogo1{
   padding: 30px ;
   /* padding-left: 0px; */
 }
-
+.inline-block{
+  display: inline-block;
+}
 @media(max-width: 576px){
   .nav-item a{
     padding: 5px ;
