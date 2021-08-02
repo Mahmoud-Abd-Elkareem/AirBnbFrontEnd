@@ -39,6 +39,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from "primeng/divider";
 import { NotifierModule } from 'angular-notifier';
+import { AddPropertyImagesComponent } from './Components/add-property-images/add-property-images.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { NotifierModule } from 'angular-notifier';
     LandingPageNavbarComponentComponent,
     PersonalInfoComponent,
     PaymentInfoComponent,
-    PropertyOverviewComponent
+    PropertyOverviewComponent,
+    AddPropertyImagesComponent
 
   ],
   imports: [
@@ -86,7 +88,7 @@ import { NotifierModule } from 'angular-notifier';
     NotifierModule.withConfig(
       {
         position: {
-          vertical: { position:"top" },
+          vertical: { position:"bottom" },
           horizontal: { position: "right"}
         },
         // animations :{ enabled:true },

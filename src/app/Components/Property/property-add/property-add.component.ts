@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Property } from 'src/app/Modules/property';
 import { PropertyService } from 'src/app/Services/property.service';
@@ -11,9 +12,9 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class PropertyAddComponent implements OnInit {
 
-  prop: Property = new Property(1,"","",1,"","","",1,1,1,"","","","","",1);
+  prop: Property = new Property(1,"","",1,"","",1,1,1,1,"","","","","",1);
 
-  constructor(public propertyserv : PropertyService , public userserve : UserService ) { }
+  constructor(public propertyserv : PropertyService , public userserve : UserService , public r : Router ) { }
 
   options: any;
 
@@ -30,9 +31,17 @@ export class PropertyAddComponent implements OnInit {
     draggable!: boolean;
     saveprop(){
       this.prop.Propertylatitude=this.selectedPosition.lat()
-      this.prop.PropertyLongitude=this.selectedPosition.lng()
-      console.log(this.prop)
-    }
+      this.prop.PropertyLongitude=this.selectedPosition.lng();
+      console.log(this.prop);
+      this.propertyserv.AddProperty(this.prop).subscribe(
+        a=>{
+          console.log(a)
+          this.r.navigateByUrl("/addpropertyimages/"+a);
+        },
+        a=>{
+          console.log(a)
+        });
+      }
   ngOnInit(): void {
 
     let bounds = new google.maps.LatLngBounds();
@@ -61,7 +70,7 @@ export class PropertyAddComponent implements OnInit {
 
     })
 
-    this.propertyserv.AddProperty(this.prop).subscribe(a=>console.log(a));
+
 
 
   this.initOverlays();

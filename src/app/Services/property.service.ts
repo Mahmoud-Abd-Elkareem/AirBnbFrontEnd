@@ -2,16 +2,20 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient , HttpHeaders} from '@angular/common/http'
 import { Property } from 'src/app/Modules/property';
+import { environment } from 'src/environments/environment';
 
-const httpOptions={
-  headers: new HttpHeaders({
-    'Content-Type':'application/json'
-  })
-}
+
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class PropertyService {
+
+  token : string  | null = environment.autho_token_value;
+
+
+
     private apiprop ='http://localhost:5000/property'
     GetAllProperty() : Observable<Property[]>{
       return this.http.get<Property[]>("http://localhost:3000/property");
@@ -33,14 +37,17 @@ export class PropertyService {
       return this.http.delete<Property>("http://localhost:3000/property/"+id)
     }
 
-    AddProperty(prop:Property) : Observable<Property>{
-      return this.http.post<Property>("http://localhost:3000/property",prop)
+    AddProperty(prop:Property) {
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
+      });
+      return this.http.post(`${environment.apiUrl}/api/Property/AddProperty` , prop,{ headers});
     }
 
-    EditProperty(prop:Property) : Observable<Property>{
+    // EditProperty(prop:Property) : Observable<Property>{
 
-      return this.http.put<Property>("http://localhost:3000/property/"+prop.PropertyID+"/"+prop.PropertyHostID,prop,httpOptions)
-    }
+    //   return this.http.put<Property>("http://localhost:3000/property/"+prop.PropertyID+"/"+prop.PropertyHostID,prop,this.headers)
+    // }
 
   constructor(private http:HttpClient) { }
 }

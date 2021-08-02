@@ -4,6 +4,7 @@ import { PaymentInfoComponent } from './Components/account-settings/payment-info
 import { PersonalInfoComponent } from './Components/account-settings/personal-info/personal-info.component';
 import { LoginComponent } from './Components/Account/login/login.component';
 import { RegisterComponent } from './Components/Account/register/register.component';
+import { AddPropertyImagesComponent } from './Components/add-property-images/add-property-images.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { HostingComponent } from './Components/hosting/hosting.component';
 import { NearbyPropertyComponent } from './Components/nearby-property/nearby-property.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'propertyoverview', component: PropertyOverviewComponent},
   {path:'AddProperty', component: PropertyAddComponent},
   {path:'nearbyprop', component: NearbyPropertyComponent},
+  {path:'AddPropertyImages/:id', component: AddPropertyImagesComponent},
 
   {path:'account', children: [ // remember to authenticate the user after login and register
     {path:'', component: LoginComponent},
