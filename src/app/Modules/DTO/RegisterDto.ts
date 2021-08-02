@@ -7,7 +7,7 @@ export class RegisterDto {
     phoneNumber!:number;
     birthDate!:Date;
     image!:string;
-    gender!:number;
+    gender!:string;
     country!:string;
     city!:string;
     street!:string;

@@ -25,10 +25,14 @@ export class LoginComponent implements OnInit {
      else{
         this._globalService.Login(this.user).subscribe(
           (data:any)=> {
-            console.log(data.token);
+            console.log(data);
             localStorage.removeItem(environment.auth_token_key);
             localStorage.setItem(environment.auth_token_key, data.token);
-            this.router.navigateByUrl('home');
+
+            localStorage.removeItem(environment.user_data_key);
+            localStorage.setItem(environment.user_data_key, JSON.stringify(data.userData));
+            // this.router.navigateByUrl('home');
+            location.href = `${location.origin}`; // to enforce page reloading to update the navbar
           } ,
           (error:any)=> {
             console.log(error);
