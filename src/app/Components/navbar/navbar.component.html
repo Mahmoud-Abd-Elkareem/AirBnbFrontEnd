@@ -22,7 +22,7 @@
         <li *ngIf="isLoggdIn" class="nav-item">
           <a class="nav-link" (click)="onLogoutClick()" class="inline-block">Log out</a>
           <img name="dispalyedImage" #dispalyedImage [src]="ProfileImageUrl" style="width: 50px;" class="rounded img-thumbnail inline-block" alt="profile Picture">
-          <a class="nav-link" routerLink="account-settings/personal-info" class="inline-block">Profile</a>
+          <a class="nav-link" routerLink="account-settings/personal-info" class="inline-block">{{fname}} Profile</a>
         </li>
         
         <li *ngIf="!isLoggdIn" class="nav-item">

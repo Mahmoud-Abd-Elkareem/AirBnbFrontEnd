@@ -8,7 +8,7 @@
 
             <div class="card bg-light mt-2">
                 <div class="card-body mx-auto" style="max-width: 400px;">
-                    <h4 class="card-title mt-3 text-center">Personal info</h4>
+                    <h4 class="card-title mt-3 text-center">Personal Info</h4>
 
                     <form #PInfoForm="ngForm" (ngSubmit)="UpdatePersonalInfo()">
 
@@ -27,7 +27,7 @@
                         <label for="email" class="form-label">Email : </label>
                         <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
-                            <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="userInfo.email" placeholder="Email address" aria-label="email">
+                            <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="userInfo.email" placeholder="Email address" aria-label="email" readonly>
                         </div>
 
                         <label for="phoneNumber" class="form-label">Phone number : </label>
@@ -56,38 +56,17 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-x fa-user"></i></span>
                             <select name="gender" [(ngModel)]="userInfo.gender" #gender="ngModel" class="form-control">
-                                <option value="-1" selected>Select gender</option>
-                                <option *ngFor="let gender of genders" [value]="gender.value">{{gender.name}}</option>
+                                <option value="-1" disabled selected>Select gender</option>
+                                <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
                             </select>
                             <!-- <p-dropdown name="gender" [options]="genders" [(ngModel)]="user.gender" optionLabel="name" optionValue="value"></p-dropdown> -->
                         </div>
-
-                        <label for="gender" class="form-label">Profile picture : </label>
-                        <div class="custom-file mb-3">
-                            <input type="file" name="image" #fileUploader class="custom-file-input" (change)="onImageChange($event,fileUploader)" accept=".png, .jpg, .jpeg" >
-                            <label class="custom-file-label" for="customFile">Upload Picture</label>
-                        </div>
-
-                        <div class="text-center mb-3" style="display: none;">
-                            <img name="dispalyedImage" #dispalyedImage src="../../../../assets/Images/avatar-image.png" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
-                        </div>
-
-                        <div *ngIf="userInfo.image; else noImage " class="text-center mb-3" style="max-width:225px; margin:auto;">
-                            <!-- <img name="dispalyedImage" #dispalyedImage [src]="data:image/*;base64,userInfo.image" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture"> -->
-                            <img name="dispalyedImage" #dispalyedImage [src]="DisplayedImageUrl" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
-                        </div>
-
-                        <ng-template #noImage>
-                            <div class="text-center mb-3" style="max-width:225px; margin:auto;">
-                                <img name="dispalyedImage" #dispalyedImage [src]="DisplayedImageUrl" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
-                            </div>
-                        </ng-template>
 
                         <label for="Country" class="form-label">Country : </label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-flag"></i></span>
                             <select name="country" [(ngModel)]="userInfo.country" #country="ngModel" class="form-control">
-                                <option value="-1" selected>Select country</option>
+                                <option value="-1" disabled selected>Select country</option>
                                 <option *ngFor="let country of countires" [value]="country">{{country}}</option>
                             </select>
                             <!-- <p-dropdown name="gender" [options]="genders" [(ngModel)]="user.gender" optionLabel="name" optionValue="value"></p-dropdown> -->
@@ -121,9 +100,39 @@
                 
         </div> 
 
-        <!-- Security Info -->
+       
         <div class="col-md-12 col-lg-6">
 
+             <!-- Profile Picture -->
+            <div class="card bg-light mt-2">
+                <div class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Profile Picture</h4>
+
+                    <form (ngSubmit)="UpdateProfileImage(fileUploader)">
+
+                        <div class="custom-file mb-3">
+                            <input type="file" name="image" #fileUploader class="custom-file-input" (change)="onImageChange($event,fileUploader)" accept="image/*" > 
+                            <label class="custom-file-label" for="customFile">Upload Picture</label>
+                        </div>
+
+                        <div class="text-center mb-3" style="display: none;">
+                            <img name="dispalyedImage" #dispalyedImage src="../../../../assets/Images/avatar-image.png" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
+                        </div>
+
+                        <div class="text-center mb-3" style="max-width:225px; margin:auto;">
+                            <!-- <img name="dispalyedImage" #dispalyedImage [src]="data:image/*;base64,userInfo.image" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture"> -->
+                            <img name="dispalyedImage" #dispalyedImage [src]="DisplayedImageUrl" style="max-width: 100%;" class="rounded img-thumbnail" alt="profile Picture">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn-block btn btn-success">Update</button>
+                        </div> 
+                        
+                    </form>
+                </div>
+            </div>
+
+             <!-- Security Info -->
             <div class="card bg-light mt-2">
                 <div class="card-body mx-auto" style="max-width: 400px;">
                     <h4 class="card-title mt-3 text-center">Security info</h4>
@@ -176,9 +185,8 @@
                 </div>
             </div>
                 
+                
         </div> 
 
     </div>
 </div> 
-{{userInfo | json}}
-{{newProfileImage | json}}

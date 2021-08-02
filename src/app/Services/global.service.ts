@@ -27,6 +27,7 @@ export class GlobalService {
     //   data => {
         // console.log(data);
         localStorage.removeItem(environment.auth_token_key);
+        localStorage.removeItem(environment.user_data_key);
         this.router.navigateByUrl('account/login');
     //   },
     //   error =>  console.log(error)

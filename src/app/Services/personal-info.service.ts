@@ -21,14 +21,13 @@ export class PersonalInfoService {
   }
 
   UpdatePersonalInfo(pInfo :RegisterDto){
-    console.log(pInfo); 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       // 'Content-Type': 'multipart/form-data',
       'Authorization': `Bearer ${this.token}`
     });
     console.log(headers);
-    return this.http.post(`${environment.apiUrl}/api/User/UserUpdate` , pInfo ,{headers :headers });
+    return this.http.put(`${environment.apiUrl}/api/User/UpdateUser` , pInfo ,{headers :headers });
   }
 
   UpdatePassword(securityInfo :UpdatePasswordDto){
@@ -37,6 +36,18 @@ export class PersonalInfoService {
       'Authorization': `Bearer ${this.token}`
     }); 
     return this.http.post(`${environment.apiUrl}/api/User/ChangePassword` , securityInfo ,{ headers }); 
+  }
+
+  UpdateProfileImage(image :any){
+    const headers = new HttpHeaders({
+      // 'Content-Type': 'application/json',
+      // 'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${this.token}`
+    });
+    const formData: FormData = new FormData();
+    formData.append('image',image , image.name);
+
+    return this.http.put(`${environment.apiUrl}/api/User/UpdateProfilePicture` , formData ,{headers :headers });
   }
 
 }

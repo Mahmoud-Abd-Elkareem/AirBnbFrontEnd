@@ -5,6 +5,7 @@ import { User } from 'src/app/Modules/user';
 import { FormControl } from '@angular/forms';
 import { PersonalInfoService } from 'src/app/Services/personal-info.service';
 import { NotifierService } from 'angular-notifier';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-personal-info',
@@ -19,23 +20,38 @@ export class PersonalInfoComponent implements OnInit {
   userSecurityInfo: UpdatePasswordDto = new UpdatePasswordDto();
   newProfileImage!: string;
   DisplayedImageUrl!: string | ArrayBuffer | null ;
-  base64textString :string [] = [];
 
   genders: any ;
   countires: any ;
 
   ngOnInit(): void {
     
-    this.genders = [
-      {name: 'Male', value: '0'},
-      {name: 'Female', value: '1'}
-    ];
+    this.genders = ['Male','Female'];
     this.countires = ["Egypt" , "United Status" , "England" , "Spanish" , "Germany" , "Palastine"];
     this.DisplayedImageUrl = "../../../../assets/Images/avatar-image.png";
     this._personalInfoService.GetPersonalInfo().subscribe(
-      data => {
-        this.userInfo = data as RegisterDto; 
-        console.log(data)
+      (data :any) => {
+        
+        this.userInfo = { 
+          fname : data.fname , 
+          lname : data.lname ,
+          email : data.email ,
+          gender : data.gender , 
+          phoneNumber : data.phoneNumber ,
+          country : data.country ,
+          city : data.city ,
+          street : data.street ,
+          zipCode : data.zipcode,
+          image : data.image ,
+          birthDate : data.birthDate != null? data.birthDate.substring(0, data.birthDate.indexOf("T")): null,
+          password : data.password,
+          userName : data.userName
+        };
+
+        if (this.userInfo.image != null){
+          this.DisplayedImageUrl = `${environment.apiUrl}/images/profile/${this.userInfo.image}`;
+        }
+
       } , 
       erorr => console.log(erorr)
     );
@@ -60,7 +76,7 @@ export class PersonalInfoComponent implements OnInit {
         this.notifier.notify('error','Update faild , Something went wrong');
         console.log(error);
       }
-    );;
+    );
   }
 
   UpdatePassword(){
@@ -70,7 +86,6 @@ export class PersonalInfoComponent implements OnInit {
       if(this.userSecurityInfo.newPassword == this.userSecurityInfo.ConfirmNewPassword){
         this._personalInfoService.UpdatePassword(this.userSecurityInfo).subscribe(
           (data:any) => {
-            console.log(data);
             if(data.succeeded){
               this.notifier.notify('success','Password Updated Successfuly');
             }
@@ -94,6 +109,35 @@ export class PersonalInfoComponent implements OnInit {
 
   }
 
+  UpdateProfileImage(Inputfile:any){
+    if(Inputfile.files.length > 0){
+
+    let profileImageFile =Inputfile.files[0];
+    this._personalInfoService.UpdateProfileImage(profileImageFile).subscribe(
+      (data:any) => {
+        console.log(data);
+        if(data.succeeded){
+          this.notifier.notify('success','Profile Image Updated Successfuly');
+        }
+        else{
+          data.errors.forEach((e :any) => {
+            this.notifier.notify('error',`${e.description}`);
+          });
+        }
+      },
+      error => {
+        this.notifier.notify('error','Update faild , Something went wrong');
+        console.log(error);
+      }
+    );
+  }
+
+  else{
+    this.notifier.notify('warning','Please select an image');
+  }
+  
+}
+
   onImageChange(evt:any , Inputfile:any){
     console.log(evt);
     console.log(evt.target.files[0]);
@@ -103,18 +147,6 @@ export class PersonalInfoComponent implements OnInit {
     let reader = new FileReader();
     reader.onload = e => this.DisplayedImageUrl = reader.result;
     reader.readAsDataURL(file);
-
-    // reader.onload=this._handleReaderLoaded.bind(this);
-    // reader.readAsBinaryString(evt.target.files[0]);
-
-    // this.newProfileImage = "new image";
-    // this.userInfo.image = "new image"
-
   }
 
-  _handleReaderLoaded(e:any) {
-    var binaryString = e.target.result;
-    this.base64textString.push('data:image/png;base64,' + btoa(e.target.result));
-           console.log(btoa(binaryString));
-   }  
 }
