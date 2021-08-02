@@ -1,0 +1,46 @@
+.text{
+  color: #484848;
+}
+a , i , p , h5{
+  color: #484848 !important;
+}
+.leftitems a{
+  text-decoration: none;
+  color: black;
+  margin: 0 9px;
+  display: inline-block;
+  font-weight: 100 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.leftitems{
+  display:flex;
+  color: black;
+}
+footer
+{
+  background-color: #45526e;
+  color: white;
+  border-top:1px solid rgb(226, 224, 224) ;
+}
+.social ul{
+  flex-direction: column;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

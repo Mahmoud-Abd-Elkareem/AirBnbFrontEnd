@@ -35,12 +35,34 @@ export class PropertyAddComponent implements OnInit {
     }
   ngOnInit(): void {
 
+    let bounds = new google.maps.LatLngBounds();
+    if(!navigator.geolocation){
+      console.log("location is not supported")
+    }
+    navigator.geolocation.getCurrentPosition((position)=>{
+      console.log('lat :'+(position.coords.latitude)+'lan:'+(position.coords.longitude))
+        this.overlays = [
+            new google.maps.Marker({position: {lat: position.coords.latitude, lng: position.coords.latitude}, title:"current position"}),
+
+        ];
+
+        this.overlays.forEach(marker => {
+          bounds.extend(marker.getPosition());
+      });
+
+      setTimeout(()=> { // map will need some time to load
+          this.map.fitBounds(bounds); // Map object used directly
+      }, 1000);
+
+      this.options = {
+        center: {lat: position.coords.latitude, lng: position.coords.latitude},
+        zoom: 12
+    };
+
+    })
 
     this.propertyserv.AddProperty(this.prop).subscribe(a=>console.log(a));
-    this.options = {
-      center: {lat: 36.890257, lng: 30.707417},
-      zoom: 12
-  };
+
 
   this.initOverlays();
 
@@ -71,21 +93,16 @@ addMarker() {
   this.dialogVisible = false;
 }
 
+map!: google.maps.Map;
+
+setMap(event:any) {
+  this.map = event.map;
+}
 
 initOverlays() {
-  if (!this.overlays||!this.overlays.length) {
-      this.overlays = [
-          new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}),
-          new google.maps.Marker({position: {lat: 36.883707, lng: 30.689216}, title:"Ataturk Park"}),
-          new google.maps.Marker({position: {lat: 36.885233, lng: 30.702323}, title:"Oldtown"}),
-          new google.maps.Polygon({paths: [
-              {lat: 36.9177, lng: 30.7854},{lat: 36.8851, lng: 30.7802},{lat: 36.8829, lng: 30.8111},{lat: 36.9177, lng: 30.8159}
-          ], strokeOpacity: 0.5, strokeWeight: 1,fillColor: '#1976D2', fillOpacity: 0.35
-          }),
-          new google.maps.Circle({center: {lat: 36.90707, lng: 30.56533}, fillColor: '#1976D2', fillOpacity: 0.35, strokeWeight: 1, radius: 1500}),
-          new google.maps.Polyline({path: [{lat: 36.86149, lng: 30.63743},{lat: 36.86341, lng: 30.72463}], geodesic: true, strokeColor: '#FF0000', strokeOpacity: 0.5, strokeWeight: 2})
-      ];
-  }
+
+
+
 }
 
 zoomIn(map :any) {

@@ -22,6 +22,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
+  /* z-index: 22; */
 }
 #title{
   font-size: 52px;
@@ -128,6 +129,8 @@ option{
   width: 70%;
   height: 450px;
   margin-left: 170px;
+  z-index: 3333;
+
 }
 #carouselimg{
   height: 450px;

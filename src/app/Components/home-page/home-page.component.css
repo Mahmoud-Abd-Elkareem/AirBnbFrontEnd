@@ -1,0 +1,277 @@
+
+body{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+.header {
+  height: 650 px;
+  background-image: url("https://a0.muscache.com/im/pictures/e4a2a61c-589f-4e49-b3b8-968a6bc23389.jpg?im_w=2560");
+  /* background : cover; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  z-index: 11;
+}
+.mylabel{
+  z-index: 3333;
+}
+.homeform{
+  display: flex;
+  flex-direction:row;
+  padding:2px;
+}
+.labelplaces{
+  display: block;
+  color: white;
+}
+.homeform input{
+  /* border-end-end-radius: 40%; */
+    height: 80px;
+    padding: 35px;
+    flex-grow:2;
+  /* And hide the input's outline, so the form looks like the outline */
+   border:none;
+}
+.homeform input:focus {
+  /* removing the input focus blue box. Put this on the form if you like. */
+  outline: none;
+}
+
+.bglogo1{
+  padding: 25px ;
+
+}
+.hr{
+  background-color: white;
+  width: 2%;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.btnsearch{
+  background-color: #FF385C;
+    border: 1px solid #FF385C;
+    color: white;
+    position: absolute;
+    right: 329px;
+    top: 14px;
+    border-radius: 40px;
+    align-content: center;
+    padding: 15px 24px;
+}
+.formdiv{
+  position: relative;
+
+}
+.firstinput{
+  border-start-start-radius: 40px;
+  border-bottom-left-radius: 40px;
+
+}
+.lastinput{
+  border-end-end-radius: 40px;
+  border-top-right-radius: 40px;
+
+}
+.btnexplore{
+  border: 1px solid black;
+  margin-top:20px;
+  border-radius: 10px;
+}
+.card{
+  border: 0 solid !important;
+}
+@media(max-width: 576px){
+  .bglogo1{
+    display: inline;
+    padding: 5px ;
+    padding-left: 0px;
+  }
+}
+section{
+  margin-top: 80px;
+}
+.nearbydetails {
+  margin: 10px;
+  display: inline;
+
+}
+.nearby {
+ border-radius: 6px !important;
+
+}
+.nearbyheader{
+  font-family: var(--font-family);
+}
+@media(max-width: 280px){
+
+  .bglogo1{
+    /* display: inline; */
+    padding: 2px ;
+    padding-left: 0px;
+  }
+}
+.para{
+  color: white;
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 55px;
+  letter-spacing: -0.01em;
+}
+.para2{
+  z-index: 9999999;
+}
+.hostimg img{
+width: 100%;
+border-radius: 50px;
+}
+.hostimg{
+  z-index: 9999999;
+}
+.texthost{
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
+.texthost a{
+    color: white;
+}
+.texthost h6{
+  width: 80%;
+}
+.texthost a{
+  color: white;
+  font-weight: 700;
+}
+.texthost .btn{
+  color: white;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.texthost .btn:hover{
+  background-color: black;
+  color: aliceblue;
+  transition: 0.5s ease-in-out;
+}
+
+/* .hostimg {
+  position: relative;
+  width: 50%;
+}
+
+.hostimg img {
+  width: 100%;
+  height: auto;
+}
+
+.hostimg .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hostimg .btn:hover {
+  background-color: black;
+}
+.hostbtn{
+  margin: 20px 0;
+  color: black;
+  text-decoration: none;
+}
+.hostbtn:hover{
+  color: #555;
+  transition: 0.5s ease-in-out;
+}
+.texthost{
+
+} */
+@media (max-width: 1025px) {
+
+  .bglogo1{
+    display: inline;
+    padding: 5px ;
+    padding-left: 0px;
+  }
+  .homeform{
+
+    display: flex;
+    flex-direction:column;
+    border:0px solid grey;
+    padding:2px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+
+  }
+  .imgself{
+    display: none;
+  }
+  .texthost{
+    color: black;
+    position: initial;
+    margin-bottom:20px ;
+  }
+  .texthost h1>a{
+    color: black;
+
+  }
+  .homeform input{
+border-radius: 40px;
+      height: 80px;
+      padding: 35px;
+      flex-grow:2;
+      border:1px solid;
+      margin: 10px;
+  }
+  .btnsearch{
+    background-color: #FF385C;
+      border: 1px solid #FF385C;
+      color: white;
+      position: inherit;
+      /* margin-left: 20px; */
+      width: 100%;
+      margin: 0;
+
+
+      /* padding: 15px 24px; */
+  }
+  .para{
+    display: none;
+  }
+  .logodiv{
+    display: contents;
+  }
+  .imgself{
+    display: none;
+  }
+  .texthost{
+    color: white;
+    position: initial;
+    margin-bottom:20px;
+    background-color: black;
+    text-align: center;
+    border-radius: 20px;
+  }
+  .texthost h1>a{
+    color: white;
+    background-color: black;
+
+
+  }
+ }
+

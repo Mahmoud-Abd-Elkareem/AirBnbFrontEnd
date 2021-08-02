@@ -1,40 +1,54 @@
-
-#left-side{
-  position: fixed;
-  width: 50vw;
-  height: 100vh;
-  text-align: center;
+#cont{
   display: flex;
+}
+#left-side{
+  width: 50vw;
+  text-align: center;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgb(223, 41, 41), rgb(96, 60, 226));
-  background-attachment: fixed;
 }
 
-#title{
-  font-size: 5rem;
+#title2{
+  font-size: 3rem;
   color: white;
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 #right-side{
   width: 50vw;
-  margin-left: 50%;
   padding-right: 10%;
   padding-left: 10%;
 }
 #firstpage{
-  padding-top: 60%;
+  padding-top: 70%;
+  height: 100vh;
+}
+#firstpagel{
+  padding-top: 40%;
   height: 100vh;
 }
 #Secpage{
-  padding-top: 60%;
+  padding-top: 70%;
+  height: 100vh;
+}
+#Secpagel{
+  padding-top: 40%;
   height: 100vh;
 }
 #thirdpage{
+  padding-top: 30%;
   height: 100vh;
-  width: 100%;
-  padding-right:0% !important;
-  padding-left: 0% !important;
 }
+#thirdpagel{
+  padding-top: 40%;
+  height: 100vh;
+}
+#fourthpagel{
+  padding-top: 35%;
+  height: 100vh;
+}
+
+
+
 
