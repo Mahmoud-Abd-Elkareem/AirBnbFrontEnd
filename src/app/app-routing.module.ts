@@ -13,7 +13,7 @@ import { PropertyDetailsComponent } from './Components/Property/property-details
 import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'hosting',pathMatch:'full'},
+  {path:'', redirectTo: 'home',pathMatch:'full'},
   {path:'home', component: HomePageComponent},
   {path:'hosting', component: HostingComponent},
   {path:'property/:id', component: PropertyDetailsComponent},
@@ -31,6 +31,10 @@ const routes: Routes = [
     {path:'', component: PersonalInfoComponent},
     {path:'personal-info', component: PersonalInfoComponent},
     {path:'payment-info', component: PaymentInfoComponent},
+  ]},
+  {path:'home', children: [ // remember to check if user exists before accessing
+    {path:'', component: HomePageComponent},
+    {path:'home/:city', component: NearbyPropertyComponent},
   ]}
 ];
 

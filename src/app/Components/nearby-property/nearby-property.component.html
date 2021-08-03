@@ -4,7 +4,7 @@
 <div id="Left-Side-Of-Page">
   <p id="title">Stays in Cairo City</p>
   <div id="cont2">
-<div id="property"> <!--*ngFor="let prop of properties"!-->
+<div id="property" *ngFor="let item of allprops"> <!--*ngFor="let prop of properties"!-->
   <ngb-carousel id="carso">
     <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
       <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
@@ -36,217 +36,25 @@
     </ng-template>
   </ngb-carousel>
 <div id="propdesc">
-<p id="propname">bla bla bla</p>
-<p id="proproom">bla bla bla</p>
-<p id="propamenity">bla bla bla</p>
+<p id="propname">{{item.Address}}</p>
+<p id="proproom">{{item.City}}</p>
+<!-- <p id="propamenity">{{item.description}}</p> -->
 <p id="rating">bla bla bla</p>
 <p id="price">bla bla bla</p>
 
 </div>
 </div>
-<div id="property"> <!--*ngFor="let prop of properties"!-->
-  <ngb-carousel id="carso">
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop1.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop2.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop3.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template id="temp" ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop4.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-  </ngb-carousel>
-<div id="propdesc">
-<p id="propname">bla bla bla</p>
-<p id="proproom">bla bla bla</p>
-<p id="propamenity">bla bla bla</p>
-<p id="rating">bla bla bla</p>
-<p id="price">bla bla bla</p>
 
-</div>
-</div>
-<!-- <div>
-  dir="Left-Side-Of-Page"
-<p id="title">Stays in Cairo City</p> -->
-<div id="property"> <!--*ngFor="let prop of properties"!-->
-  <ngb-carousel id="carso">
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop1.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop2.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop3.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template id="temp" ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop4.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-  </ngb-carousel>
-<div id="propdesc">
-<p id="propname">bla bla bla</p>
-<p id="proproom">bla bla bla</p>
-<p id="propamenity">bla bla bla</p>
-<p id="rating">bla bla bla</p>
-<p id="price">bla bla bla</p>
 
-</div>
-</div>
-<div id="property"> <!--*ngFor="let prop of properties"!-->
-  <ngb-carousel id="carso">
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop1.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop2.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop3.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template id="temp" ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop4.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-  </ngb-carousel>
-<div id="propdesc">
-<p id="propname">bla bla bla</p>
-<p id="proproom">bla bla bla</p>
-<p id="propamenity">bla bla bla</p>
-<p id="rating">bla bla bla</p>
-<p id="price">bla bla bla</p>
 
-</div>
-</div>
-<div id="property"> <!--*ngFor="let prop of properties"!-->
-  <ngb-carousel id="carso">
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop1.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop2.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop3.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template id="temp" ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop4.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-  </ngb-carousel>
-<div id="propdesc">
-<p id="propname">bla bla bla</p>
-<p id="proproom">bla bla bla</p>
-<p id="propamenity">bla bla bla</p>
-<p id="rating">bla bla bla</p>
-<p id="price">bla bla bla</p>
 
-</div>
-</div>
-<div id="property"> <!--*ngFor="let prop of properties"!-->
-  <ngb-carousel id="carso">
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop1.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop2.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop3.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-    <ng-template id="temp" ngbSlide >  <!--*ngFor="let propimgs of propimgs"!-->
-      <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-        <div class="picsum-img-wrapper">
-          <img src="../../../assets/Images/prop4.jpg"  alt="">  <!--/*[src]="propimgs"*/!-->
-        </div>
-      </a>
-    </ng-template>
-  </ngb-carousel>
-<div id="propdesc">
-<p id="propname">bla bla bla</p>
-<p id="proproom">bla bla bla</p>
-<p id="propamenity">bla bla bla</p>
-<p id="rating">bla bla bla</p>
-<p id="price">bla bla bla</p>
 
-</div>
-</div>
+
+
+
+
+
+
 <ngb-pagination
   [(page)]="page"
   [pageSize]="pageSize"

@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-3">
       <div class="justify-content-start logo">
-        <a routerLink="AirBnbFrontEnd\src\app\Components\home"><img src="../../../assets/Images/bglogo1.png"class="bglogo1" alt=""></a>
+        <a routerLink="/home">
+          <img src="../../../assets/Images/bglogo1.png"class="bglogo1" alt="">
+        </a>
     </div>
     </div>
     <div class="col-9">
@@ -24,7 +26,7 @@
           <img name="dispalyedImage" #dispalyedImage [src]="ProfileImageUrl" style="width: 50px;" class="rounded img-thumbnail inline-block" alt="profile Picture">
           <a class="nav-link" routerLink="account-settings/personal-info" class="inline-block">{{fname}} Profile</a>
         </li>
-        
+
         <li *ngIf="!isLoggdIn" class="nav-item">
           <a class="nav-link" routerLink="account/login">Log in</a>
         </li>

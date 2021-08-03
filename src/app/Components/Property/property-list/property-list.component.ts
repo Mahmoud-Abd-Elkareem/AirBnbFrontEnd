@@ -17,7 +17,7 @@ export class PropertyListComponent implements OnInit {
   constructor(public Propertyserv:PropertyService) { }
 
   ngOnInit(): void {
-    this.Propertyserv.GetAllProperty().subscribe(a=>{this.properties=a ; console.log(a)})
+    this.Propertyserv.Getallprops().subscribe(a=>{this.properties=a ; console.log(a)})
     if(!navigator.geolocation){
       console.log("location is not supported")
     }

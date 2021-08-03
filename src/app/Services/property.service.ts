@@ -17,9 +17,15 @@ export class PropertyService {
 
 
     private apiprop ='http://localhost:5000/property'
-    GetAllProperty() : Observable<Property[]>{
-      return this.http.get<Property[]>("http://localhost:3000/property");
-    }
+    // GetAllProperty() : Observable<Property[]>{
+    //   return this.http.get<Property[]>("http://localhost:3000/property");
+    // }
+Url="https://localhost:44351/api/Property";
+
+Getallprops(): Observable<Property[]>{
+ console.log(this.http.get<Property[]>(this.Url));
+  return this.http.get<Property[]>(this.Url)
+}
 
     GetProperty(id:number) : Observable<Property>{
       return this.http.get<Property>("http://localhost:3000/property/"+id)
