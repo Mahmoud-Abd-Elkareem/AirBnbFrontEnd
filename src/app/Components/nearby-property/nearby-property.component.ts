@@ -34,7 +34,7 @@ export class NearbyPropertyComponent implements OnInit {
 
   prop : PropertyImages = new PropertyImages (1,"")
   propimgs !: PropertyImages[]
-  propert: Property = new Property(1,"","",1,"","","",1,1,1,"","","","","",1);
+  propert: Property = new Property(1,"","",1,"","",1,1,1,1,"","","","","",1);
   properties !: Property[] ;
 
   page : number = 1;

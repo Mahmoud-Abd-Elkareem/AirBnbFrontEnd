@@ -1,7 +1,7 @@
 export class RegisterDto {
     email!:String;
     password!:string;
-    fname!:String;
+    fname!:string;
     lname!:string;
     userName!:string;
     phoneNumber!:number;

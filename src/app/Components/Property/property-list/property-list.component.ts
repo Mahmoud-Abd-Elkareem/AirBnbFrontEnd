@@ -10,7 +10,7 @@ import { PropertyService } from 'src/app/Services/property.service';
 export class PropertyListComponent implements OnInit {
 
 
-  prop: Property = new Property(1,"1","1",1,"","","",1,1,1,"","","","","",1);
+  prop: Property = new Property(1,"1","1",1,"","",1,1,1,1,"","","","","",1);
   properties ?: Property[] ;
 
 
