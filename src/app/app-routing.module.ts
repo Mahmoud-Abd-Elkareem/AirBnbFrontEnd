@@ -34,7 +34,7 @@ const routes: Routes = [
   ]},
   {path:'home', children: [ // remember to check if user exists before accessing
     {path:'', component: HomePageComponent},
-    {path:'home/:city', component: NearbyPropertyComponent},
+    // {path:'home/:city', component: NearbyPropertyComponent},
   ]}
 ];
 
