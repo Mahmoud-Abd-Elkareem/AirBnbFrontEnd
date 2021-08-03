@@ -28,7 +28,10 @@ import { RegisterComponent } from './Components/Account/register/register.compon
 import { LandingPageNavbarComponentComponent } from './Components/landing-page-navbar-component/landing-page-navbar-component.component';
 import { PersonalInfoComponent } from './Components/account-settings/personal-info/personal-info.component';
 import { PaymentInfoComponent } from './Components/account-settings/payment-info/payment-info.component';
+import { PayConfirmComponent } from './Components/Property/property-details/pay-confirm/pay-confirm.component';
+
 import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
+
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -62,9 +65,12 @@ import { HostsuccessComponent } from './Components/hostsuccess/hostsuccess.compo
     LandingPageNavbarComponentComponent,
     PersonalInfoComponent,
     PaymentInfoComponent,
+
+    PayConfirmComponent
     PropertyOverviewComponent,
     AddPropertyImagesComponent,
     HostsuccessComponent
+
 
   ],
   imports: [
