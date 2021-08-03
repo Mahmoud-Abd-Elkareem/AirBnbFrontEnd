@@ -14,7 +14,8 @@ body{
   font-family: var(--font-family);
   font-size: 12px;
   padding: 30px ;
-
+  text-decoration: none;
+  cursor: pointer;
 }
 .bglogo1{
   padding: 30px ;

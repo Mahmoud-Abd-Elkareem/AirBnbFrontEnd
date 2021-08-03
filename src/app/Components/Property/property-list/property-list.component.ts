@@ -10,14 +10,14 @@ import { PropertyService } from 'src/app/Services/property.service';
 export class PropertyListComponent implements OnInit {
 
 
-  prop: Property = new Property(1,1,1,"","","",1,1,1,"","","","","",1);
-  properties ?: Property[] ;///////////////////////
+  prop: Property = new Property(1,"1","1",1,"","",1,1,1,1,"","","","","","1");
+  properties ?: Property[] ;
 
 
   constructor(public Propertyserv:PropertyService) { }
 
   ngOnInit(): void {
-    this.Propertyserv.GetAllProperty().subscribe(a=>this.properties=a)//////////////
+    this.Propertyserv.Getallprops().subscribe(a=>{this.properties=a ; console.log(a)})
     if(!navigator.geolocation){
       console.log("location is not supported")
     }

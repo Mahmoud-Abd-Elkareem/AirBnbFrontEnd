@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CountryComponent } from './country.component';
+import { PropertyOverviewComponent } from './property-overview.component';
 
-describe('CountryComponent', () => {
-  let component: CountryComponent;
-  let fixture: ComponentFixture<CountryComponent>;
+describe('PropertyOverviewComponent', () => {
+  let component: PropertyOverviewComponent;
+  let fixture: ComponentFixture<PropertyOverviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CountryComponent ]
+      declarations: [ PropertyOverviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CountryComponent);
+    fixture = TestBed.createComponent(PropertyOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

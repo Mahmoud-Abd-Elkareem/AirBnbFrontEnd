@@ -31,7 +31,7 @@ body{
     padding: 35px;
     flex-grow:2;
   /* And hide the input's outline, so the form looks like the outline */
-  border:none;
+   border:none;
 }
 .homeform input:focus {
   /* removing the input focus blue box. Put this on the form if you like. */
@@ -53,7 +53,7 @@ body{
     border: 1px solid #FF385C;
     color: white;
     position: absolute;
-    right: 329px;
+    right: 250px;
     top: 14px;
     border-radius: 40px;
     align-content: center;
@@ -89,7 +89,7 @@ body{
   }
 }
 section{
-  margin-top: 20px;
+  margin-top: 80px;
 }
 .nearbydetails {
   margin: 10px;
@@ -120,8 +120,86 @@ section{
 }
 .para2{
   z-index: 9999999;
-
 }
+.hostimg img{
+width: 100%;
+border-radius: 50px;
+}
+.hostimg{
+  z-index: 9999999;
+}
+.texthost{
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
+.texthost a{
+    color: white;
+}
+.texthost h6{
+  width: 80%;
+}
+.texthost a{
+  color: white;
+  font-weight: 700;
+}
+.texthost .btn{
+  color: white;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.texthost .btn:hover{
+  background-color: black;
+  color: aliceblue;
+  transition: 0.5s ease-in-out;
+}
+
+/* .hostimg {
+  position: relative;
+  width: 50%;
+}
+
+.hostimg img {
+  width: 100%;
+  height: auto;
+}
+
+.hostimg .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hostimg .btn:hover {
+  background-color: black;
+}
+.hostbtn{
+  margin: 20px 0;
+  color: black;
+  text-decoration: none;
+}
+.hostbtn:hover{
+  color: #555;
+  transition: 0.5s ease-in-out;
+}
+.texthost{
+
+} */
 @media (max-width: 1025px) {
 
   .bglogo1{
@@ -138,6 +216,18 @@ section{
     width: 100%;
     margin: 0 auto;
     align-items: center;
+
+  }
+  .imgself{
+    display: none;
+  }
+  .texthost{
+    color: black;
+    position: initial;
+    margin-bottom:20px ;
+  }
+  .texthost h1>a{
+    color: black;
 
   }
   .homeform input{
@@ -165,6 +255,23 @@ border-radius: 40px;
   }
   .logodiv{
     display: contents;
+  }
+  .imgself{
+    display: none;
+  }
+  .texthost{
+    color: white;
+    position: initial;
+    margin-bottom:20px;
+    background-color: black;
+    text-align: center;
+    border-radius: 20px;
+  }
+  .texthost h1>a{
+    color: white;
+    background-color: black;
+
+
   }
  }
 

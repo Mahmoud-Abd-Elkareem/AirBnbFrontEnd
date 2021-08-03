@@ -1,12 +1,13 @@
 export class RegisterDto {
     email!:String;
-    password!:number;
-    firstName!:String;
-    lastName!:string;
-    phone!:number;
+    password!:string;
+    fname!:string;
+    lname!:string;
+    userName!:string;
+    phoneNumber!:number;
     birthDate!:Date;
-    userImage!:string;
-    gender!:number;
+    image!:string;
+    gender!:string;
     country!:string;
     city!:string;
     street!:string;

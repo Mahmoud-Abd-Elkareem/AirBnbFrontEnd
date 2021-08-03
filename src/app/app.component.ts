@@ -1,6 +1,6 @@
 import { Component ,  OnInit} from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-
+import { NotifierContainerComponent } from 'angular-notifier';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-root',

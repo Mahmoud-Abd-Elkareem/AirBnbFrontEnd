@@ -1,1 +1,81 @@
-<p>property-add works!</p>
+<div id="cont">
+<div id="left-side" class="col-6">
+  <div id="firstpagel">
+  <p id="title2">Welcome back, Can you name your property ?! </p>
+</div>
+<div id="Secpagel">
+  <p id="title2">Write a discription of what you can offer ! </p>
+</div>
+<div id="thirdpagel">
+  <p id="title2">Now can you mark your location</p>
+</div>
+<div id="fourthpagel">
+  <p id="title2">Give us more details of what you have</p>
+</div>
+</div>
+<div id="right-side" class="col-6">
+<form #r="ngForm" >
+  <div class="mb-3" id="firstpage">
+    <label for="exampleFormControlInput1" class="form-label">Property Name</label>
+    <input type="text" #pname="ngModel" [(ngModel)]="prop.PropertyName" name="PropertyName" class="form-control" id="exampleFormControlInput1" placeholder="Enter the name of property you want it to be shown by"><br>
+    <label for="exampleFormControlInput1" class="form-label">Property Type</label>
+    <input type="text" #pname="ngModel" [(ngModel)]="prop.PropertyType" name="PropertyType" class="form-control" id="exampleFormControlInput1" placeholder="Enter the type of property"><br>
+  </div>
+
+  <div class="mb-3" id="Secpage">
+    <label for="exampleFormControlTextarea1" class="form-label">Property Discription</label>
+    <textarea class="form-control"  #pdisc="ngModel" [(ngModel)]="prop.PropertyDescription" name="PropertyDescription" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+    <label for="exampleFormControlInput1" class="form-label">Unique Stays</label>
+    <input type="text" #pname="ngModel" [(ngModel)]="prop.UniqueStays" name="PropertyType" class="form-control" id="exampleFormControlInput1"><br>
+  </div>
+
+  <div id="thirdpage">
+    <p-gmap #gmap [style]="{'width':'100%','height':'320px', 'margin-bottom': '1em'}" [options]="options" [overlays]="overlays"
+    (onMapReady)="setMap($event)"  (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)" ></p-gmap>
+
+<button type="button" pButton label="Clear" icon="pi pi-times" (click)="clear()" style="margin-right:.25em"></button>
+
+
+<p-dialog showEffect="fade" [(visible)]="dialogVisible" header="New Location" [style]="{width: '400px'}">
+ <div class="p-grid p-fluid" *ngIf="selectedPosition">
+     <div class="p-col-2"><label for="title">Address</label></div>
+     <div class="p-col-10"><input  type="text" pInputText id="title"  name="PropertyAdress" [(ngModel)]="prop.Address" [style]="{width: '300px'}"></div>
+
+     <div class="p-col-2"><label for="title">City</label></div>
+     <div class="p-col-10"><input  type="text" pInputText id="title"  name="City" [(ngModel)]="prop.City" [style]="{width: '300px'}"></div>
+     <div class="p-col-2"><label for="title">Country</label></div>
+     <div class="p-col-10"><input  type="text" pInputText id="title"  name="Country" [(ngModel)]="prop.Country" [style]="{width: '300px'}"></div>
+
+     <div class="p-col-2"><label for="lat">Lat</label></div>
+     <div class="p-col-10"><input id="lat" type="text" readonly pInputText  name="Propertylatitude" [(ngModel)]="prop.Propertylatitude" [ngModel]="selectedPosition.lat()"></div>
+
+     <div class="p-col-2"><label for="lng">Lng</label></div>
+     <div class="p-col-10"><input id="lng" type="text" readonly pInputText  name="PropertyLongitude" [(ngModel)]="prop.PropertyLongitude" [ngModel]="selectedPosition.lng()"></div>
+ </div><br>
+ <ng-template pTemplate="footer">
+     <div>
+         <button type="button" pButton label="Add Marker" icon="pi-plus" (click)="addMarker()"></button>
+     </div>
+ </ng-template>
+</p-dialog>
+  </div>
+  <div id="fourthpage">
+    <label for="exampleFormControlInput1" class="form-label">Property Max Occupation</label>
+    <input type="number" #pname="ngModel" [(ngModel)]="prop.PropertyMaxOccupation" name="PropertyMaxOccupation" class="form-control" id="exampleFormControlInput1" ><br>
+    <label for="exampleFormControlInput1" class="form-label">Property Total Beds</label>
+    <input type="number" #pname="ngModel" [(ngModel)]="prop.PropertyTotalBeds" name="PropertyTotalBeds" class="form-control" id="exampleFormControlInput1" ><br>
+    <label for="exampleFormControlInput1" class="form-label">Property Total Rooms</label>
+    <input type="number" #pname="ngModel" [(ngModel)]="prop.PropertyTotalRooms" name="PropertyTotalRooms" class="form-control" id="exampleFormControlInput1" ><br>
+    <label for="exampleFormControlInput1" class="form-label">Property Total Bathrooms</label>
+    <input type="number" #pname="ngModel" [(ngModel)]="prop.PropertyTotalBathrooms" name="PropertyTotalBathrooms" class="form-control" id="exampleFormControlInput1" ><br>
+    <label for="exampleFormControlInput1" class="form-label">Property Price Per Night</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <span class="input-group-text">.00</span>
+    </div><br>
+  </div>
+  <button class="btn badge-danger" (click)="saveprop()">Submit</button>
+</form>
+</div>
+</div>

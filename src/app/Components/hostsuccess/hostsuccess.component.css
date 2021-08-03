@@ -21,34 +21,13 @@
   padding-left: 10%;
 }
 #firstpage{
-  padding-top: 70%;
+  padding-top: 65%;
   height: 100vh;
 }
 #firstpagel{
   padding-top: 40%;
   height: 100vh;
 }
-#Secpage{
-  padding-top: 70%;
-  height: 100vh;
+#btn{
+  font-size: 2rem;
 }
-#Secpagel{
-  padding-top: 40%;
-  height: 100vh;
-}
-#thirdpage{
-  padding-top: 30%;
-  height: 100vh;
-}
-#thirdpagel{
-  padding-top: 40%;
-  height: 100vh;
-}
-#fourthpagel{
-  padding-top: 35%;
-  height: 100vh;
-}
-
-
-
-

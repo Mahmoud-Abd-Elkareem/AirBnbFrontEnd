@@ -1,21 +1,21 @@
-<app-landing-page-navbar-component></app-landing-page-navbar-component>
+<!-- <app-landing-page-navbar-component></app-landing-page-navbar-component> -->
 <header class="header">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-1 logodiv">
         <div class="justify-content-start logo">
-          <img src="../../../assets/images/bglogo1.png" class="bglogo1" alt="">
+          <!-- <img src="../../../assets/images/bglogo1.png" class="bglogo1" alt=""> -->
         </div>
       </div>
       <div class="col-lg-11 col-sm-12 py-4 my-0 mylabel">
-        <label class="labelplaces text-lg-center ">Places To Stay</label>
+        <label class="labelplaces text-lg-center">Places To Stay</label>
         <hr class="hr">
         <div class="input-group justify-content-around formdiv">
-         <form action="" class="homeform">
-          <input type="text" class="form-control firstinput" placeholder="location" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <input type="text" class="form-control" placeholder="check in" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <input type="text" class="form-control lastinput" placeholder="check out" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary btnsearch" type="button" id="button-addon2">search</button>
+         <form class="homeform" #searchForm="ngForm" >
+          <input type="text" class="form-control firstinput" name="location" #location placeholder="location">
+          <input type="text" class="form-control" name="minPrice" #minPrice placeholder="min price">
+          <input type="text" class="form-control lastinput" name="maxPrice" #maxPrice placeholder="max price">
+          <button  class="btn btn-outline-secondary btnsearch"  type="button" id="button-addon2" (click)="search(location.value, minPrice.value , maxPrice.value)" >search</button>
         </form>
         </div>
       </div>
@@ -38,7 +38,7 @@
     <div class="card mb-3" style="max-width: 540px;">
       <div class="row g-0">
        <div class="col-md-4">
-        <img src="../../../assets/images/bgimg1.png"  class="img-fluid rounded-start" alt="...">
+        <img src="../../../assets/Images/prop1.jpg"  class="img-fluid rounded-start" alt="...">
        </div>
        <div class="col-md-8">
         <div class="card-body">
@@ -50,3 +50,20 @@
   </div>
 </div>
 </section>
+<section>
+<div class="container">
+  <div class="row">
+    <div class="col-12 hostimg my-5">
+      <div class="texthost">
+        <h1 class="my-3"> <a routerLink="/hosting" class="hostbtn">Try hosting</a></h1>
+        <h6>Earn extra income and unlock new opportunities by sharing your space.</h6>
+        <a routerLink="/hosting" class="btn my-3">Try hosting</a>
+      </div>
+      <a routerLink="/hosting">
+      <img src="../../../assets/Images/homehost.jpg" alt="" class="imgself"  srcset="" >
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
