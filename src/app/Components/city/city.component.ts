@@ -9,7 +9,7 @@ import { PropertyService } from 'src/app/Services/property.service';
 })
 export class CityComponent implements OnInit {
 
-  prop: Property = new Property(1,"1","1",1,"","",1,1,1,1,"","","","","",1);
+  prop: Property = new Property(1,"1","1",1,"","",1,1,1,1,"","","","","","1");
   properties ?: Property[] ;
 
   constructor(public Propertyserv:PropertyService) { }

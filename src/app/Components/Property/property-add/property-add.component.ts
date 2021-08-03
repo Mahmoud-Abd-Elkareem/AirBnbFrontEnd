@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { Property } from 'src/app/Modules/property';
+import { Propertyregistration } from 'src/app/Modules/propertyregistration';
+import { PersonalInfoService } from 'src/app/Services/personal-info.service';
 import { PropertyService } from 'src/app/Services/property.service';
 import { UserService } from 'src/app/Services/user.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-property-add',
@@ -11,10 +13,10 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./property-add.component.css']
 })
 export class PropertyAddComponent implements OnInit {
+  userId !: string;
+  prop: Propertyregistration = new Propertyregistration("","",1,"","",1,1,1,1,"","","","","",this.userId);
 
-  prop: Property = new Property(1,"","",1,"","",1,1,1,1,"","","","","",1);
-
-  constructor(public propertyserv : PropertyService , public userserve : UserService , public r : Router ) { }
+  constructor( private notifier:NotifierService, public propertyserv : PropertyService , public userserve : UserService , public r : Router , private user : PersonalInfoService ) { }
 
   options: any;
 
@@ -32,6 +34,12 @@ export class PropertyAddComponent implements OnInit {
     saveprop(){
       this.prop.Propertylatitude=this.selectedPosition.lat()
       this.prop.PropertyLongitude=this.selectedPosition.lng();
+      if(this.prop.Address=="" ||this.prop.City=="" ||this.prop.Country=="" ||this.prop.PropertyDescription=="" ||this.prop.PropertyLongitude=="" ||this.prop.PropertyName==""
+      ||this.prop.PropertyType==""||this.prop.Propertylatitude=="" ||this.prop.UniqueStays=="")
+      {
+        this.notifier.notify('error','please fill all fields');
+        return;
+      }
       console.log(this.prop);
       this.propertyserv.AddProperty(this.prop).subscribe(
         a=>{
@@ -42,7 +50,16 @@ export class PropertyAddComponent implements OnInit {
           console.log(a)
         });
       }
+
   ngOnInit(): void {
+    this.user.GetPersonalInfo().subscribe(
+      (data :any) => {
+        console.log(data)
+        this.userId = data.id;
+        this.prop.PropertyHostID=this.userId;
+      } ,
+      erorr => console.log(erorr)
+    );
 
     let bounds = new google.maps.LatLngBounds();
     if(!navigator.geolocation){

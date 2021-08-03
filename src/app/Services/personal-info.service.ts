@@ -17,6 +17,7 @@ export class PersonalInfoService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.token}`
     });
+
     return this.http.get(`${environment.apiUrl}/api/User/UserDetails` ,{ headers: headers });
   }
 
@@ -34,8 +35,8 @@ export class PersonalInfoService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.token}`
-    }); 
-    return this.http.post(`${environment.apiUrl}/api/User/ChangePassword` , securityInfo ,{ headers }); 
+    });
+    return this.http.post(`${environment.apiUrl}/api/User/ChangePassword` , securityInfo ,{ headers });
   }
 
   UpdateProfileImage(image :any){

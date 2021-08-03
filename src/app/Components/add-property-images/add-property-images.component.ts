@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { PropertyImagesService } from 'src/app/Services/property-images.service';
 import { PropertyService } from 'src/app/Services/property.service';
@@ -14,7 +14,7 @@ export class AddPropertyImagesComponent implements OnInit {
   newProfileImage!: string;
   DisplayedImageUrl!: string | ArrayBuffer | null ;
   DisplayedImageUrl2!: string | ArrayBuffer | null ;
-  constructor(private activateRoute : ActivatedRoute ,private notifier:NotifierService , private images: PropertyImagesService , private property :PropertyService) { }
+  constructor( private r : Router, private activateRoute : ActivatedRoute ,private notifier:NotifierService , private images: PropertyImagesService , private property :PropertyService) { }
 
  filenames : string[] = [];
   propId : number= 0;
@@ -33,10 +33,13 @@ export class AddPropertyImagesComponent implements OnInit {
         console.log(data);
         if(data!=0){
           this.notifier.notify('success','Property Images Updated Successfuly');
+          this.r.navigateByUrl("hostsuccess");
+
         }
         else{
 
             this.notifier.notify('error', 'You didnt successed');
+
         }
       },
       error => {

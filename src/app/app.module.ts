@@ -40,6 +40,7 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from "primeng/divider";
 import { NotifierModule } from 'angular-notifier';
 import { AddPropertyImagesComponent } from './Components/add-property-images/add-property-images.component';
+import { HostsuccessComponent } from './Components/hostsuccess/hostsuccess.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AddPropertyImagesComponent } from './Components/add-property-images/add
     PersonalInfoComponent,
     PaymentInfoComponent,
     PropertyOverviewComponent,
-    AddPropertyImagesComponent
+    AddPropertyImagesComponent,
+    HostsuccessComponent
 
   ],
   imports: [
@@ -88,7 +90,7 @@ import { AddPropertyImagesComponent } from './Components/add-property-images/add
     NotifierModule.withConfig(
       {
         position: {
-          vertical: { position:"bottom" },
+          vertical: { position:"top" , distance:80},
           horizontal: { position: "right"}
         },
         // animations :{ enabled:true },

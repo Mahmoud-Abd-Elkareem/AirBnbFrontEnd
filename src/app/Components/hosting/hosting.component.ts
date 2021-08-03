@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hosting',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostingComponent implements OnInit {
 
-  constructor() { }
+  constructor( public r : Router) { }
 
   guest :any[] =[
     {value:1 , name:"1guest" },
@@ -24,6 +25,9 @@ export class HostingComponent implements OnInit {
 
   ngOnInit(): void {
     this.Price=this.selectedOption.value *123;
+  }
+  Hostnow(){
+    this.r.navigateByUrl("AddProperty");
   }
 
 }

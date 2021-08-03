@@ -25,18 +25,19 @@ export class PersonalInfoComponent implements OnInit {
   countires: any ;
 
   ngOnInit(): void {
-    
+
     this.genders = ['Male','Female'];
     this.countires = ["Egypt" , "United Status" , "England" , "Spanish" , "Germany" , "Palastine"];
     this.DisplayedImageUrl = "../../../../assets/Images/avatar-image.png";
     this._personalInfoService.GetPersonalInfo().subscribe(
       (data :any) => {
-        
-        this.userInfo = { 
-          fname : data.fname , 
+
+        console.log(data)
+        this.userInfo = {
+          fname : data.fname ,
           lname : data.lname ,
           email : data.email ,
-          gender : data.gender , 
+          gender : data.gender ,
           phoneNumber : data.phoneNumber ,
           country : data.country ,
           city : data.city ,
@@ -52,7 +53,7 @@ export class PersonalInfoComponent implements OnInit {
           this.DisplayedImageUrl = `${environment.apiUrl}/images/profile/${this.userInfo.image}`;
         }
 
-      } , 
+      } ,
       erorr => console.log(erorr)
     );
 
@@ -82,7 +83,7 @@ export class PersonalInfoComponent implements OnInit {
   UpdatePassword(){
 
     if (this.userSecurityInfo.newPassword.trim() !="" && this.userSecurityInfo.newPassword != null) {
-      
+
       if(this.userSecurityInfo.newPassword == this.userSecurityInfo.ConfirmNewPassword){
         this._personalInfoService.UpdatePassword(this.userSecurityInfo).subscribe(
           (data:any) => {
@@ -118,6 +119,7 @@ export class PersonalInfoComponent implements OnInit {
         console.log(data);
         if(data.succeeded){
           this.notifier.notify('success','Profile Image Updated Successfuly');
+          location.href = `${location.origin}`;
         }
         else{
           data.errors.forEach((e :any) => {
@@ -135,7 +137,7 @@ export class PersonalInfoComponent implements OnInit {
   else{
     this.notifier.notify('warning','Please select an image');
   }
-  
+
 }
 
   onImageChange(evt:any , Inputfile:any){

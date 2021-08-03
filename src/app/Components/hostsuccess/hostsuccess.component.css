@@ -1,0 +1,33 @@
+#cont{
+  display: flex;
+}
+#left-side{
+  width: 50vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgb(223, 41, 41), rgb(96, 60, 226));
+}
+
+#title2{
+  font-size: 3rem;
+  color: white;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+#right-side{
+  width: 50vw;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+#firstpage{
+  padding-top: 65%;
+  height: 100vh;
+}
+#firstpagel{
+  padding-top: 40%;
+  height: 100vh;
+}
+#btn{
+  font-size: 2rem;
+}
