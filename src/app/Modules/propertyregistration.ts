@@ -1,5 +1,5 @@
-export class Property {
-  constructor(public PropertyID:number,
+export class Propertyregistration {
+  constructor(
     public PropertyLongitude:string,
     public Propertylatitude:string,
     public PropertyPricePerNight:number,

@@ -9,6 +9,7 @@ export const environment = {
   autho_token_value: localStorage.getItem('airbnb_auth_token'),
   user_data_key:"airbnb_user_data",
   user_data_value: localStorage.getItem('airbnb_user_data')
+
 };
 
 /*
