@@ -18,11 +18,15 @@
   <div class="mb-3" id="firstpage">
     <label for="exampleFormControlInput1" class="form-label">Property Name</label>
     <input type="text" #pname="ngModel" [(ngModel)]="prop.PropertyName" name="PropertyName" class="form-control" id="exampleFormControlInput1" placeholder="Enter the name of property you want it to be shown by"><br>
+    <label for="exampleFormControlInput1" class="form-label">Property Type</label>
+    <input type="text" #pname="ngModel" [(ngModel)]="prop.PropertyType" name="PropertyType" class="form-control" id="exampleFormControlInput1" placeholder="Enter the type of property"><br>
   </div>
 
   <div class="mb-3" id="Secpage">
     <label for="exampleFormControlTextarea1" class="form-label">Property Discription</label>
     <textarea class="form-control"  #pdisc="ngModel" [(ngModel)]="prop.PropertyDescription" name="PropertyDescription" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+    <label for="exampleFormControlInput1" class="form-label">Unique Stays</label>
+    <input type="text" #pname="ngModel" [(ngModel)]="prop.UniqueStays" name="PropertyType" class="form-control" id="exampleFormControlInput1"><br>
   </div>
 
   <div id="thirdpage">

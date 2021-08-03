@@ -7,6 +7,8 @@ import { RegisterComponent } from './Components/Account/register/register.compon
 import { AddPropertyImagesComponent } from './Components/add-property-images/add-property-images.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { HostingComponent } from './Components/hosting/hosting.component';
+import { PayConfirmComponent } from './Components/Property/property-details/pay-confirm/pay-confirm.component';
+import { HostsuccessComponent } from './Components/hostsuccess/hostsuccess.component';
 import { NearbyPropertyComponent } from './Components/nearby-property/nearby-property.component';
 import { PropertyAddComponent } from './Components/Property/property-add/property-add.component';
 import { PropertyDetailsComponent } from './Components/Property/property-details/property-details.component';
@@ -17,15 +19,19 @@ const routes: Routes = [
   {path:'home', component: HomePageComponent},
   {path:'hosting', component: HostingComponent},
   {path:'property/:id', component: PropertyDetailsComponent},
+  {path:'pay', component:PayConfirmComponent},
+
   {path:'propertyoverview', component: PropertyOverviewComponent},
   {path:'AddProperty', component: PropertyAddComponent},
   {path:'nearbyprop', component: NearbyPropertyComponent},
-  {path:'AddPropertyImages/:id', component: AddPropertyImagesComponent},
+  {path:'addpropertyimages/:id', component: AddPropertyImagesComponent},
+  {path:'hostsuccess', component: HostsuccessComponent},
 
   {path:'account', children: [ // remember to authenticate the user after login and register
     {path:'', component: LoginComponent},
     {path:'login', component: LoginComponent},
     {path:'register', component: RegisterComponent},
+
   ]},
   {path:'account-settings', children: [ // remember to check if user exists before accessing
     {path:'', component: PersonalInfoComponent},

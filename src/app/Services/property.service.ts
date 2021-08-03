@@ -3,6 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient , HttpHeaders} from '@angular/common/http'
 import { Property } from 'src/app/Modules/property';
 import { environment } from 'src/environments/environment';
+import { Propertyregistration } from '../Modules/propertyregistration';
 
 
 
@@ -49,11 +50,12 @@ export class PropertyService {
       return this.http.delete<Property>("http://localhost:3000/property/"+id)
     }
 
-    AddProperty(prop:Property) {
+    AddProperty(prop:Propertyregistration) : Observable<Property> {
       const headers = new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       });
-      return this.http.post(`${environment.apiUrl}/api/Property/AddProperty` , prop,{ headers});
+      console.log(headers)
+      return this.http.post<Property>(`${environment.apiUrl}/api/Property/AddProperty`,prop,{headers});
     }
 
     // EditProperty(prop:Property) : Observable<Property>{
