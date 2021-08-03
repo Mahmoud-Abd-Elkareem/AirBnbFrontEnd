@@ -4,6 +4,7 @@ import { PropertyImages } from 'src/app/Modules/property-images';
 import { PropertyImagesService } from 'src/app/Services/property-images.service';
 import { PropertyService } from 'src/app/Services/property.service';
 import {Dto} from 'src/app/Modules/DTO/Dto';
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -13,8 +14,10 @@ import {Dto} from 'src/app/Modules/DTO/Dto';
 })
 export class NearbyPropertyComponent implements OnInit {
 
-  allprops!:Property[];
- cityprops!:any[];
+  allprops:any;
+  cityprops!:any[];
+  propList:any;
+  
   getallproperties(){
 
     this.Propertyserv.Getallprops().subscribe(
@@ -30,7 +33,7 @@ export class NearbyPropertyComponent implements OnInit {
     )
 }
 
-  constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService) { }
+  constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService, private notifier:NotifierService) { }
 
   prop : PropertyImages = new PropertyImages (1,"")
   propimgs !: PropertyImages[]
@@ -54,24 +57,16 @@ export class NearbyPropertyComponent implements OnInit {
  overlays : google.maps.Marker[] =[];
 
  ngOnInit(): void {
-  this.Propertyserv.Getallprops().subscribe(
-    (a:any)=>{console.log(a);
-      // let x =a.filter(item=>item);
-      // let y =x.filter(item => item.PropertyID== 10);
-      // console.log(x);
-      // console.log(y);
-      for (let index = 0; index < a.length; index++) {
-        console.log(a[index].city);
-
-        if(a[index].city=="kerk")
-        {
-          console.log(a[index].propertyId);
-          this.allprops.push(a[index]);
-        }
-      }
-
+  this.Propertyserv.getPropertList().subscribe(
+    (a)=>{
+      this.notifier.notify('success','all properties are loadded successfuly');
+      console.log(a);
+      this.allprops = a;
     },
-    e=>console.log(e)
+    e=>{
+      console.log(e);
+      this.notifier.notify('error','faild to get the all properties, Something went wrong');
+    }
   )
 
 

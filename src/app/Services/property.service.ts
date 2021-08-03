@@ -20,12 +20,15 @@ export class PropertyService {
     // GetAllProperty() : Observable<Property[]>{
     //   return this.http.get<Property[]>("http://localhost:3000/property");
     // }
-Url="https://localhost:44351/api/Property";
+    Url="https://localhost:44351/api/Property";
 
-Getallprops(): Observable<Property[]>{
- console.log(this.http.get<Property[]>(this.Url));
-  return this.http.get<Property[]>(this.Url)
-}
+    Getallprops(){
+      return this.http.get<Property[]>(this.Url)
+    }
+    
+    getPropertList(){
+      return this.http.get(`${environment.apiUrl}/api/Property`);
+    }
 
     GetProperty(id:number) : Observable<Property>{
       return this.http.get<Property>("http://localhost:3000/property/"+id)

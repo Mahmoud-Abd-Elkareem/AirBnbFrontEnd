@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Property } from 'src/app/Modules/property';
 import { HomeService } from 'src/app/Services/home.service';
@@ -13,28 +13,23 @@ import { HomeService } from 'src/app/Services/home.service';
   template:` <app-landing-page-navbar-component></app-landing-page-navbar-component>`
 })
 export class HomePageComponent implements OnInit {
-city:Property[]=[];
+  
+  city:Property[]=[];
 
-  search(){
-    this.homeserve.GetByCity().subscribe(
-      a=>console.log(a),
-      e=>console.log(e)
-    )
-}
-// mystring:string | undefined;
-
-// onSubmit(mystring:string) {
-//   console.log(mystring);
-// }
-// fleixble(){
-//   this.homeserve.GetByCity()
-// }
-
-  constructor(public homeserve:HomeService ,public ar:ActivatedRoute) { }
+  constructor(public homeserve:HomeService ,public _router:Router) { }
 
   ngOnInit(): void {
-  this.homeserve.GetByCity().subscribe(
-    a=>{this.city=a;console.log(a)}
-  )
+    this.homeserve.GetByCity().subscribe(
+      a=>{
+        this.city=a;
+        console.log(a);
+      }
+    );
   }
+
+  search(location:any , min:any , max:any ){
+    console.log(`${location},${min},${max}`);
+    this._router.navigateByUrl(`/nearbyprop?location=${location}&min=${min}&max=${max}`);
+  }
+
 }
