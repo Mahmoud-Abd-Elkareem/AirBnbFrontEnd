@@ -30,7 +30,7 @@ import { PersonalInfoComponent } from './Components/account-settings/personal-in
 import { PaymentInfoComponent } from './Components/account-settings/payment-info/payment-info.component';
 import { PayConfirmComponent } from './Components/Property/property-details/pay-confirm/pay-confirm.component';
 
-import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
+// import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
 
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -44,7 +44,8 @@ import { DividerModule } from "primeng/divider";
 import { NotifierModule } from 'angular-notifier';
 import { AddPropertyImagesComponent } from './Components/add-property-images/add-property-images.component';
 import { HostsuccessComponent } from './Components/hostsuccess/hostsuccess.component';
-
+import { ShowallpropsComponent } from './Components/showallprops/showallprops.component';
+import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,11 +66,11 @@ import { HostsuccessComponent } from './Components/hostsuccess/hostsuccess.compo
     LandingPageNavbarComponentComponent,
     PersonalInfoComponent,
     PaymentInfoComponent,
-
-    PayConfirmComponent
+    ShowallpropsComponent,
+    PayConfirmComponent,
     PropertyOverviewComponent,
     AddPropertyImagesComponent,
-    HostsuccessComponent
+    HostsuccessComponent,
 
 
   ],

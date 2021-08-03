@@ -13,6 +13,7 @@ import { NearbyPropertyComponent } from './Components/nearby-property/nearby-pro
 import { PropertyAddComponent } from './Components/Property/property-add/property-add.component';
 import { PropertyDetailsComponent } from './Components/Property/property-details/property-details.component';
 import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
+import { ShowallpropsComponent } from './Components/showallprops/showallprops.component'
 
 const routes: Routes = [
   {path:'', redirectTo: 'home',pathMatch:'full'},
@@ -23,9 +24,11 @@ const routes: Routes = [
 
   {path:'propertyoverview', component: PropertyOverviewComponent},
   {path:'AddProperty', component: PropertyAddComponent},
-  {path:'nearby', component: NearbyPropertyComponent},
+  {path:'nearbyprop', component: NearbyPropertyComponent},
   {path:'addpropertyimages/:id', component: AddPropertyImagesComponent},
   {path:'hostsuccess', component: HostsuccessComponent},
+  {path:'flexible', component: ShowallpropsComponent},
+
 
   {path:'account', children: [ // remember to authenticate the user after login and register
     {path:'', component: LoginComponent},
