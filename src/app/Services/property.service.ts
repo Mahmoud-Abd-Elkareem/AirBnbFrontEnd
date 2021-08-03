@@ -25,10 +25,13 @@ export class PropertyService {
     Getallprops(){
       return this.http.get<Property[]>(this.Url)
     }
-    
+
     getPropertList(){
       return this.http.get(`${environment.apiUrl}/api/Property`);
     }
+    // getPropertyByLocation(location : string){
+    //   return this.http.get(`${environment.apiUrl}/api/Property/location/${location}`);
+    // }
 
     GetProperty(id:number) : Observable<Property>{
       return this.http.get<Property>("http://localhost:3000/property/"+id)

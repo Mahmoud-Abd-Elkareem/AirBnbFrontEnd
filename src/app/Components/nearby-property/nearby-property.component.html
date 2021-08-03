@@ -2,7 +2,7 @@
 
 <div id="cont">
   <div id="Left-Side-Of-Page">
-    <p id="title">Stays in Cairo City</p>
+    <p id="title">Stays in {{location}}</p>
     <div id="cont2">
 
       <div id="property" *ngFor="let item of allprops"> <!--*ngFor="let prop of properties"!-->
@@ -43,11 +43,11 @@
               <h5 class="card-title">{{item.propertyName}}</h5>
               <h6 class="card-subtitle mb-2">
                   <span class="beforeDiscount text-muted">{{item.propertyPricePerNight+10 | currency}}</span> 
-                  <span style="font-weight: bold;">{{item.propertyPricePerNight | currency}}</span> / night</h6>
+                  <span style="font-weight: bold;"> {{item.propertyPricePerNight | currency}}</span> / night</h6>
               <p class="card-text">{{item.propertyDescription}}.</p>
               <p class="text-muted">{{item.propertyMaxOccupation}} guests , {{item.propertyTotalRooms}} bedroom , {{item.propertyTotalBeds}} bed , {{item.propertyTotalBathrooms}} bath</p>
-              <a href="#" class="card-link"> {{item.address}}</a>
-              <a href="#" class="card-link">Show Details</a>
+             
+              <a routerLink="/property/{{item.propertyID}}" class="card-link">Show Details</a>
             </div>
           </div>
         </div>
@@ -67,7 +67,8 @@
     [(page)]="page"
     [pageSize]="pageSize"
     [collectionSize]="6"
-    (pageChange)="getpropertiesbypage()"></ngb-pagination>
+    (pageChange)="getpropertiesbypage()"
+    class="mt-3 d-flex justify-content-center"></ngb-pagination>
     </div>
   </div>
 <div id="Right-Side-Of-Page">

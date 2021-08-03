@@ -14,24 +14,25 @@ import { NotifierService } from 'angular-notifier';
 })
 export class NearbyPropertyComponent implements OnInit {
 
-  allprops:any;
+  allprops:Dto[] = [];
   cityprops!:any[];
-  propList:any;
-  
-  getallproperties(){
+  propList:any[] = [{}];
+  location:string | null ="";
 
-    this.Propertyserv.Getallprops().subscribe(
-      a=>{console.log(a);
-      let x =a.filter(item=>item.City=="kerk");
-      let y =x.filter(item => item.PropertyID== 10);
-      console.log(x);
-      console.log(y);
-      this.allprops= x;
+  // getallproperties(){
 
-      },
-      e=>console.log(e)
-    )
-}
+  //   this.Propertyserv.getPropertList().subscribe(
+  //     (a:any)=>{
+  //       this.notifier.notify('success','all properties are loadded successfuly');
+  //       // console.log(a);
+  //       this.allprops = a;
+  //     },
+  //     e=>{
+  //       console.log(e);
+  //       this.notifier.notify('error','faild to get the all properties, Something went wrong');
+  //     }
+  //   )
+  // }
 
   constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService, private notifier:NotifierService) { }
 
@@ -57,19 +58,33 @@ export class NearbyPropertyComponent implements OnInit {
  overlays : google.maps.Marker[] =[];
 
  ngOnInit(): void {
+  this.location = new URLSearchParams (window.location.search).get('location');
+  const min = new URLSearchParams (window.location.search).get('min');
+  const max = new URLSearchParams (window.location.search).get('max');
   this.Propertyserv.getPropertList().subscribe(
-    (a)=>{
+    (a:any)=>{
       this.notifier.notify('success','all properties are loadded successfuly');
-      console.log(a);
       this.allprops = a;
+      
+      if (this.location != ""){
+        this.notifier.notify('success',` location , ${this.location}`);
+        this.allprops=this.allprops.filter(p=>p.city.toLocaleLowerCase() == this.location); 
+      }
+      if (min != ""){
+        this.notifier.notify('success',`min ,${min}`);
+        this.allprops=this.allprops.filter(p=>p.propertyPricePerNight > Number(min));
+      }
+      if (max != ""){
+        this.notifier.notify('success',`max ,${max}`);
+        this.allprops=this.allprops.filter(p=>p.propertyPricePerNight < Number(max));
+      }
     },
     e=>{
       console.log(e);
       this.notifier.notify('error','faild to get the all properties, Something went wrong');
     }
-  )
-
-
+  );
+  
 
   const iconBase =
   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
