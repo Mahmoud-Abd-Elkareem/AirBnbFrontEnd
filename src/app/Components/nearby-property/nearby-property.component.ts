@@ -3,6 +3,8 @@ import { Property } from 'src/app/Modules/property';
 import { PropertyImages } from 'src/app/Modules/property-images';
 import { PropertyImagesService } from 'src/app/Services/property-images.service';
 import { PropertyService } from 'src/app/Services/property.service';
+import {Dto} from 'src/app/Modules/DTO/Dto';
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -12,7 +14,26 @@ import { PropertyService } from 'src/app/Services/property.service';
 })
 export class NearbyPropertyComponent implements OnInit {
 
-  constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService) { }
+  allprops:any;
+  cityprops!:any[];
+  propList:any;
+  
+  getallproperties(){
+
+    this.Propertyserv.Getallprops().subscribe(
+      a=>{console.log(a);
+      let x =a.filter(item=>item.City=="kerk");
+      let y =x.filter(item => item.PropertyID== 10);
+      console.log(x);
+      console.log(y);
+      this.allprops= x;
+
+      },
+      e=>console.log(e)
+    )
+}
+
+  constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService, private notifier:NotifierService) { }
 
   prop : PropertyImages = new PropertyImages (1,"")
   propimgs !: PropertyImages[]
@@ -36,18 +57,31 @@ export class NearbyPropertyComponent implements OnInit {
  overlays : google.maps.Marker[] =[];
 
  ngOnInit(): void {
+  this.Propertyserv.getPropertList().subscribe(
+    (a)=>{
+      this.notifier.notify('success','all properties are loadded successfuly');
+      console.log(a);
+      this.allprops = a;
+    },
+    e=>{
+      console.log(e);
+      this.notifier.notify('error','faild to get the all properties, Something went wrong');
+    }
+  )
+
+
 
   const iconBase =
   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
     let bounds = new google.maps.LatLngBounds();
     this.propertyimgserv.GetPropertyimages(this.prop.PropertId).subscribe(a=>this.propimgs=a)
-   this.Propertyserv.GetAllProperty().subscribe(a =>
+   this.Propertyserv.Getallprops().subscribe(a =>
     {
         this.properties = a;
         this.properties.forEach(prop=>{
           this.overlays.push(new google.maps.Marker(
             {
-              position: { lat :  parseFloat(prop.Propertylatitude) , lng: parseFloat(prop.PropertyLongitude)},
+              position: { lat :  parseFloat(prop.Propertylatitude ) , lng: parseFloat(prop.PropertyLongitude)},
               title : prop.PropertyDescription ,
                 icon: iconBase + "info-i_maps.png",
             }

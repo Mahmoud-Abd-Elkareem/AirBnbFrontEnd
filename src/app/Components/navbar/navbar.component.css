@@ -2,7 +2,7 @@
   width: 100%;
 }
 .color{
-  background-color:black;
+  background-color:transparent;
   position: fixed;
   z-index: 100000000;
 }
@@ -10,7 +10,7 @@
   width: 100%;
 }
 .nav-item a{
-  Color: var(--color);
+  Color: rgb(252, 87, 114);
   font-family: var(--font-family);
   font-size: 12px;
   /* margin: 15%; */

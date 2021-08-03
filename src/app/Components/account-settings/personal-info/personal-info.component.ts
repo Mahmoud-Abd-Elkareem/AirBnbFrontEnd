@@ -119,6 +119,7 @@ export class PersonalInfoComponent implements OnInit {
         console.log(data);
         if(data.succeeded){
           this.notifier.notify('success','Profile Image Updated Successfuly');
+          location.href = `${location.origin}`;
         }
         else{
           data.errors.forEach((e :any) => {

@@ -90,7 +90,7 @@ import { HostsuccessComponent } from './Components/hostsuccess/hostsuccess.compo
     NotifierModule.withConfig(
       {
         position: {
-          vertical: { position:"bottom" },
+          vertical: { position:"top" , distance:80},
           horizontal: { position: "right"}
         },
         // animations :{ enabled:true },

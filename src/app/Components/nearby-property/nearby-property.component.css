@@ -1,6 +1,8 @@
 #cont{
   display: flex;
   height: 1200px;
+  padding-top:80px;
+  padding-bottom:100px;
 }
 #Left-Side-Of-Page{
   height: 500px;
@@ -34,8 +36,20 @@ font-weight: 700;
   width: 350px;
   padding: 10px;
 }
+.card {
+  border:none
+}
+.card-body {
+  padding: 0.25rem;
+}
+.card-subtitle .beforeDiscount {
+  text-decoration: line-through;
+}
+
 #propname{
-  font-size: .8rem;
+  font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 #rating{
