@@ -39,6 +39,9 @@ font-weight: 700;
 .card {
   border:none
 }
+.card-title{
+  text-transform: capitalize;
+}
 .card-body {
   padding: 0.25rem;
 }
@@ -67,4 +70,8 @@ font-weight: 700;
   width: 50%;
   position: fixed;
   left: 50%;
+}
+.pagination {
+  margin-top: 20px;
+  justify-content: center !important;
 }
