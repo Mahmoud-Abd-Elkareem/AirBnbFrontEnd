@@ -1,21 +1,21 @@
-<app-landing-page-navbar-component></app-landing-page-navbar-component>
+<!-- <app-landing-page-navbar-component></app-landing-page-navbar-component> -->
 <header class="header">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-1 logodiv">
         <div class="justify-content-start logo">
-          <img src="../../../assets/images/bglogo1.png" class="bglogo1" alt="">
+          <!-- <img src="../../../assets/images/bglogo1.png" class="bglogo1" alt=""> -->
         </div>
       </div>
       <div class="col-lg-11 col-sm-12 py-4 my-0 mylabel">
-        <label class="labelplaces text-lg-center ">Places To Stay</label>
+        <label class="labelplaces text-lg-center">Places To Stay</label>
         <hr class="hr">
         <div class="input-group justify-content-around formdiv">
          <form action="" class="homeform">
           <input type="text" class="form-control firstinput" placeholder="location" aria-label="Recipient's username" aria-describedby="button-addon2">
           <input type="text" class="form-control" placeholder="check in" aria-label="Recipient's username" aria-describedby="button-addon2">
           <input type="text" class="form-control lastinput" placeholder="check out" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary btnsearch" type="button" id="button-addon2">search</button>
+          <button  class="btn btn-outline-secondary btnsearch"  type="button" id="button-addon2"  (click)="search()">search</button>
         </form>
         </div>
       </div>
