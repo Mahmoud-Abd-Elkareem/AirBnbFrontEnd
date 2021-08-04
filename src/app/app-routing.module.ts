@@ -14,13 +14,15 @@ import { PropertyAddComponent } from './Components/Property/property-add/propert
 import { PropertyDetailsComponent } from './Components/Property/property-details/property-details.component';
 import { PropertyOverviewComponent } from './Components/Property/PropertyOverview/property-overview.component';
 import { ShowallpropsComponent } from './Components/showallprops/showallprops.component'
+import { AuthgurdService } from './Services/authgurd.service';
 
 const routes: Routes = [
   {path:'', redirectTo: 'home',pathMatch:'full'},
   {path:'home', component: HomePageComponent},
-  {path:'hosting', component: HostingComponent},
+  {path:'hosting', component: HostingComponent , 'canActivate':[AuthgurdService]},
+  {path:'pay', component:PayConfirmComponent , 'canActivate':[AuthgurdService]},
   {path:'property/:id', component: PropertyDetailsComponent},
-  {path:'pay', component:PayConfirmComponent},
+
 
   {path:'propertyoverview', component: PropertyOverviewComponent},
   {path:'AddProperty', component: PropertyAddComponent},
