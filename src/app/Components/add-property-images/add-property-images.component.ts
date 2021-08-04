@@ -10,14 +10,15 @@ import { PropertyService } from 'src/app/Services/property.service';
   styleUrls: ['./add-property-images.component.css']
 })
 export class AddPropertyImagesComponent implements OnInit {
-  urlSources : any |string [] | ArrayBuffer[] | null []= [] ;
+  urlSources : any |string [] | ArrayBuffer[] | null []= [];
+  filenames : string[] = [];
   newProfileImage!: string;
-  DisplayedImageUrl!: string | ArrayBuffer | null ;
-  DisplayedImageUrl2!: string | ArrayBuffer | null ;
+  propId : number= 0;
+  // DisplayedImageUrl!: string | ArrayBuffer | null ;
+  // DisplayedImageUrl2!: string | ArrayBuffer | null ;
   constructor( private r : Router, private activateRoute : ActivatedRoute ,private notifier:NotifierService , private images: PropertyImagesService , private property :PropertyService) { }
 
- filenames : string[] = [];
-  propId : number= 0;
+
   ngOnInit(): void {
     this.activateRoute.params.subscribe( queryString => this.propId = queryString['id'] )
     console.log(this.propId);
