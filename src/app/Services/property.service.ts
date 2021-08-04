@@ -23,13 +23,16 @@ export class PropertyService {
     // }
     Url="https://localhost:44351/api/Property";
 
-    Getallprops(){
+    Getallprops():Observable<any[]>| any{
       return this.http.get<Property[]>(this.Url)
     }
-    
+
     getPropertList(){
       return this.http.get(`${environment.apiUrl}/api/Property`);
     }
+    // getPropertyByLocation(location : string){
+    //   return this.http.get(`${environment.apiUrl}/api/Property/location/${location}`);
+    // }
 
     GetProperty(id:number) : Observable<Property>{
       return this.http.get<Property>("https://localhost:44351/api/Property/"+id)

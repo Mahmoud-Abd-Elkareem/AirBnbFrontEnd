@@ -33,6 +33,7 @@ trylog(){
 }
 
   ngOnInit(): void {
+
     this.route.params.subscribe((params) => {
         let id = params['id'];
 

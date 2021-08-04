@@ -1,3 +1,29 @@
+
+.cards{
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  /* overflow-x: hidden !important; */
+
+  /* flex: 30%; */
+  /* flex-direction: row; */
+}
+.card-body1{
+  width: 30%;
+  border-radius: 5%;
+  overflow: hidden;
+  /* border-bottom-left-radius: 2%;
+  border-bottom-right-radius: 2%; */
+
+
+}
+
+.anchorstyle{
+  text-decoration: none;
+  color: black;
+}
 #cont{
   display: flex;
   height: 1200px;

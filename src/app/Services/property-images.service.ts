@@ -23,6 +23,12 @@ export class PropertyImagesService {
     return this.http.get<PropertyImages[]>("https://localhost:44351/api/PropertyImage/"+id)
   }
 
+  GetAllPropertyimages() {
+    return this.http.get(`${environment.apiUrl}/api/PropertyImage`)
+  }
+
+
+
   // AddPropertyImages(propimages : any , id :number) : Observable<PropertyImages[]>{
   //   return this.http.post<PropertyImages[]>(`${environment.apiUrl}/api/PropertyImage/AddPropertyImages/${id}` , propimages, this.headers)
   // }

@@ -13,6 +13,10 @@ body{
   height: 100vh;
   z-index: 11;
 }
+.hostbtn2{
+  color:black !important;
+}
+
 .mylabel{
   z-index: 3333;
 }
