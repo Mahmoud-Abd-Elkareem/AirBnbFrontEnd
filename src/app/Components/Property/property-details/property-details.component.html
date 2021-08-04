@@ -53,8 +53,8 @@
                         <label for="exampleInputEmail1" class="form-label label2 mx-0"> Arrival</label>
                         <label for="exampleInputEmail1" class="form-label label2 label3 mx-lg-5 px-4 departure"> Departure</label>
                         <div class="input-group mb-3">
-                            <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="Username">
-                            <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="Server">
+                            <input type="date" class="form-control" name="startDate"  placeholder="dd/mm/yyyy" [(ngModel)]="startDate" #start="ngModel">
+                            <input type="date" class="form-control" name="endDate"  placeholder="dd/mm/yyyy" [(ngModel)]="endDate" #end="ngModel">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
-                        <button type="submit" class="btn btn-primary formbtn">Reserve</button>
+                        <button type="submit" class="btn btn-primary formbtn" (click)="MakeReservation()" >Reserve</button>
                     </div>
                 </form>
             </div>

@@ -10,7 +10,7 @@
             <div class="row fbox my-5 p-3">
                 <div class="col">
                     <h5>This is a rare find.</h5>
-                    <p style="color: #A1A1A1;">Monia's place is usually booked.</p>
+                    <p style="color: #A1A1A1;">{{prop.user.fname}} place is usually booked.</p>
                 </div>
                 <div class="col">
                     <i class="far fa-gem"></i>
@@ -19,56 +19,13 @@
             </div>
             <div class="mt-2">
                 <h3 class="p1">Your trip</h3>
-                <p class="p2">Dates</p>
-                <p class="p3">Oct 1 – 12</p>
-                <p class="p4">Guests</p>
-                <p class="p5">1 guest</p>
+                <p class="p2">Start Date</p>
+                <p class="p3">{{startDate | date:'fullDate'}}</p>
+                <p class="p4">End Date</p>
+                <p class="p5">{{endDate | date:'fullDate'}}</p>
 
             </div>
             <hr>
-            <div>
-                <h3 style="font-size: 24px;"> Choose how to pay</h3>
-            </div>
-            <div class="pay">
-
-                <div class="pay-para">
-                    <p class="p6 mx-3">Pay in full</p>
-                    <p class="p7 mx-3">Pay the total now and you're all set.</p>
-                    <div class="pay-icon row" style="float:right">
-                        <div class="col">
-                            <p class="price" style="display: inline;"> <span style="font-weight: bold;">€246.79</span></p>
-                        </div>
-                        <div class="col"></div>
-
-                        <a (click)='changeFlag()'><i class="far fa-circle" style="    margin: -58px;
-                          margin-right: 32px;">  </i></a>
-
-                    </div>
-                </div>
-
-
-                <hr>
-                <div>
-
-                    <p class="p8 mx-3">Pay part now, part later</p>
-                    <p class="p9 mx-3">Pay €123.40 now, and the rest (€123.39) will be automatically charged to the same payment method on Sep 18, 2021. No extra fees.</p>
-
-                    <div class="pay-icon row" style="float:right;margin: -23px;
-                    margin-right: -13px;">
-                        <div class="col">
-                            <p class="price" style="display: inline;"> <span style="font-weight: bold;">
-                              €122.79</span></p>
-                        </div>
-                        <div class="col"></div>
-                        <a (click)='changeFlag()'><i class="far fa-circle" style="    margin: -58px;
-                          margin-right: 32px;">  </i></a>
-                    </div>
-                    <p style="text-decoration: underline; margin-left: 17px;">More info</p>
-
-
-                </div>
-
-            </div>
             <hr>
             <div>
                 <h3 class="p10">Cancellation policy</h3>
@@ -80,19 +37,25 @@
             <hr>
             <div class="final">
                 <p>By selecting the button below, I agree to the <span style="text-decoration: underline;">House Rules,</span> <span style="text-decoration: underline;">Safety Disclosures,</span> <span style="text-decoration: underline;">Airbnb’s social-distancing and other COVID-19-related guidelines, Cancellation Policy,</span>                    and the <span style="text-decoration: underline;">Guest Refund Policy.</span> I also agree to pay the total amount shown, which includes Service Fees.</p>
-                <button class="btn">Confirm and pay</button>
+                <button class="btn" (click)="makeReservation()">Confirm and pay</button>
             </div>
         </div>
         <div class="col">
             <div class="right sticky-top ">
                 <div class="row">
-                    <div class="col-4">
-                        <img src="../../../../../assets/Images/bgimg1.png" alt="" class="img">
+                    <div class="col-4" *ngIf="prop.propertyImages[0].image; else noimage">
+                        <img src="https://localhost:44351/images/property/{{prop.propertyImages[0].image}}" alt="" class="img">
                     </div>
+
+                    <ng-template #noimage>
+                        <div class="col-4">
+                            <img src="https://localhost:44351/images/property/{{prop.propertyImages[0].image}}" alt="" class="img">
+                        </div>
+                    </ng-template>
                     <div class="col-8 my-4">
-                        <p class="p14">Entire rental unit in Al Abageyah</p>
-                        <p class="p15">Comfort home at sheikh zayed simple & quiet</p>
-                        <p class="p16">2 beds · 2 baths</p>
+                        <p class="p14">{{prop.propertyName}}</p>
+                        <p class="p15">{{prop.propertyDescription}}</p>
+                        <p class="p16">{{prop.propertyTotalBeds}} beds · {{prop.propertyTotalBathrooms}} baths . {{prop.propertyTotalRooms}} rooms</p>
                         <i class="fas fa-star fa-xs"> <span style="color: black;">4.86</span> <span style="color: #797979;">(7 reviews)</span> </i>
                     </div>
                 </div>
@@ -103,42 +66,18 @@
                     </div>
 
                     <div class="my-4 mx-3">
-
-                        <p class="p17" placement="top" ngbPopover="Average nightly rate is rounded.">€21.85 x 11 nights</p>
-
-
-                        <p class="p18"> €240.30</p>
+                        <p class="p17" placement="top" ngbPopover="Average nightly rate is rounded."> {{prop.propertyPricePerNight | currency}} x {{dateDiff}} nights</p>
+                        <p class="p18"> {{totalPrice | currency}}</p>
                     </div>
-                    <div class="my-5">
-                        <p class="p19" placement="top" ngbPopover="Monia’s place has weekly discounts for stays longer than 7 days.">10% weekly price discount</p>
-                        <p class="p20">-€24.04</p>
-                    </div>
-                    <div class="my-5">
-                        <p class="p21" placement="top" ngbPopover="Average nightly rate is rounded.This helps us run our platform and offer services like 24/7 support on your trip.">Service fee</p>
-                        <p class="p22"> €30.53</p>
-                    </div>
-                    <div class="my-5">
-                        <p class="p23" placement="top" ngbPopover="">Total (EUR)</p>
-                        <p class="p24"> €246.79</p>
-
-                    </div>
-
-
                 </div>
 
                 <hr style="margin-top: 175px;">
 
                 <div class="hide" [hidden]="!flag">
                     <div class="my-4 mx-3">
-                        <p class="p17" style="text-decoration: none;font-weight: bold;">Due now</p>
+                        <p class="p17" style="text-decoration: none;font-weight: bold;">Due on {{startDate | date:'fullDate'}}</p>
                         <p class="p18" style="font-weight: bold;">
-                            €122.79</p>
-                    </div>
-                    <div class="my-4 mx-3">
-                        <p class="p25">Due on Sep 18, 2021</p>
-                        <p class="p26">
-
-                            €122.79</p>
+                            {{totalPrice | currency}}</p>
                     </div>
                 </div>
 

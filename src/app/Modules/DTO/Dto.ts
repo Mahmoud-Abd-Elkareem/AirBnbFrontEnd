@@ -9,4 +9,5 @@ export class Dto {
     public country!:string;public city!:string;public address!:string;
     public propertyType!:string;public propertyHostID!:number;
     public propertyImages!:any[];
+    public user!:any;
 }

@@ -63,5 +63,12 @@ export class PropertyService {
     //   return this.http.put<Property>("http://localhost:3000/property/"+prop.PropertyID+"/"+prop.PropertyHostID,prop,this.headers)
     // }
 
+    makeReservation(reservation:any){
+      // const headers = new HttpHeaders({
+      //   'Authorization': `Bearer ${this.token}`
+      // });
+      return this.http.post(`${environment.apiUrl}/api/Reservation`,reservation);
+    }
+
   constructor(private http:HttpClient) { }
 }
