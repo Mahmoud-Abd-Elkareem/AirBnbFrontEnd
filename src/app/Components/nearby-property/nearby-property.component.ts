@@ -102,7 +102,7 @@ export class NearbyPropertyComponent implements OnInit {
         this.properties.forEach(prop=>{
           this.overlays.push(new google.maps.Marker(
             {
-              position: { lat :  parseFloat(prop.Propertylatitude ) , lng: parseFloat(prop.PropertyLongitude)},
+              position: { lat :  parseFloat(prop.propertylatitude ) , lng: parseFloat(prop.propertyLongitude)},
               title : prop.PropertyDescription ,
                 icon: iconBase + "info-i_maps.png",
             }

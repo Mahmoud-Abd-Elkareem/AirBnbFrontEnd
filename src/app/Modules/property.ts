@@ -1,7 +1,7 @@
 export class Property {
   constructor(public PropertyID:number,
-    public PropertyLongitude:string,
-    public Propertylatitude:string,
+    public propertyLongitude:string,
+    public propertylatitude:string,
     public PropertyPricePerNight:number,
     public PropertyName:string,public PropertyDescription:string,
     public PropertyMaxOccupation:number,public PropertyTotalBeds:number,
