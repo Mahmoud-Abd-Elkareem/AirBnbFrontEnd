@@ -1,14 +1,16 @@
 <section>
-
-    <div id="property" *ngFor="let item of allprops; let i = index ;">
+<!-- <div class="container"> -->
+  <!-- <div class="row d-flex"> -->
+    <div class="col-4 m-auto ">
+      <div id="property" *ngFor="let item of allprops; let i = index ;" width="100%">
         <!--*ngFor="let prop of properties"!-->
         <ngb-carousel id="carso">
             <ng-template ngbSlide *ngFor="let propimgs of allprops[i].propertyImages">
                 <!--*ngFor="let propimgs of propimgs"!-->
 
-                <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
+                <a routerLink="/property/{{item.propertyID}}" class="my-2" target="_blank" rel="nofollow noopener noreferrer">
                     <div class="picsum-img-wrapper">
-                        <img src="https://localhost:44351/images/property/{{propimgs.image}}" alt="">
+                        <img src="https://localhost:44351/images/property/{{propimgs.image}}" width="100%" alt="">
                         <!--/[src]="propimgs"/!-->
                     </div>
                 </a>
@@ -40,4 +42,8 @@
 
 
     </div>
+
+</div>
+<!-- </div> -->
+<!-- </div> -->
 </section>
