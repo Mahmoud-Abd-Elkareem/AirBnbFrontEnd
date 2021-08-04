@@ -74,7 +74,7 @@ export class NearbyPropertyComponent implements OnInit {
 
       if (this.location != ""){
         this.notifier.notify('success',` location , ${this.location}`);
-        this.allprops=this.allprops.filter(p=>p.city.toLocaleLowerCase() == this.location);
+        this.allprops=this.allprops.filter(p=>p.city.toLowerCase() == this.location?.toLowerCase());
       }
       if (min != ""){
         this.notifier.notify('success',`min ,${min}`);

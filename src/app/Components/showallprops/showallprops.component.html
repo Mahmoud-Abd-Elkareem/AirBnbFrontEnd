@@ -1,33 +1,36 @@
 <section>
 
-  <div id="property" *ngFor="let item of allprops"> <!--*ngFor="let prop of properties"!-->
-    <ngb-carousel id="carso">
-      <ng-template ngbSlide *ngFor="let propimgs of allpropsimages">  <!--*ngFor="let propimgs of propimgs"!-->
-        <div *ngIf="item.propertyID==propimgs.propertyID">
-        <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-          <div class="picsum-img-wrapper">
-            <img src="https://localhost:44351/images/property/{{propimgs.image}}"  alt="">  <!--/[src]="propimgs"/!-->
-          </div>
-        </a>
-      </div>
-      </ng-template>
-    </ngb-carousel>
+    <div id="property" *ngFor="let item of allprops; let i = index ;">
+        <!--*ngFor="let prop of properties"!-->
+        <ngb-carousel id="carso">
+            <ng-template ngbSlide *ngFor="let propimgs of allprops[i].propertyImages">
+                <!--*ngFor="let propimgs of propimgs"!-->
 
-    <div id="propdesc">
-      <div class="card" style="width: 100%;">
-        <div class="card-body">
-          <h5 class="card-title">{{item.propertyName}}</h5>
-          <h6 class="card-subtitle mb-2">
-              <span class="beforeDiscount text-muted">{{item.propertyPricePerNight+10 | currency}}</span>
-              <span style="font-weight: bold;"> {{item.propertyPricePerNight | currency}}</span> / night</h6>
-          <p class="card-text">{{item.propertyDescription}}.</p>
-          <p class="text-muted">{{item.propertyMaxOccupation}} guests , {{item.propertyTotalRooms}} bedroom , {{item.propertyTotalBeds}} bed , {{item.propertyTotalBathrooms}} bath</p>
+                <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
+                    <div class="picsum-img-wrapper">
+                        <img src="https://localhost:44351/images/property/{{propimgs.image}}" alt="">
+                        <!--/[src]="propimgs"/!-->
+                    </div>
+                </a>
 
-          <a routerLink="/property/{{item.propertyID}}" class="card-link">Show Details</a>
+            </ng-template>
+        </ngb-carousel>
+
+        <div id="propdesc">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.propertyName}}</h5>
+                    <h6 class="card-subtitle mb-2">
+                        <span class="beforeDiscount text-muted">{{item.propertyPricePerNight+10 | currency}}</span>
+                        <span style="font-weight: bold;"> {{item.propertyPricePerNight | currency}}</span> / night</h6>
+                    <p class="card-text">{{item.propertyDescription}}.</p>
+                    <p class="text-muted">{{item.propertyMaxOccupation}} guests , {{item.propertyTotalRooms}} bedroom , {{item.propertyTotalBeds}} bed , {{item.propertyTotalBathrooms}} bath</p>
+
+                    <a routerLink="/property/{{item.propertyID}}" class="card-link">Show Details</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- <div id="propdesc">
+        <!-- <div id="propdesc">
       <p id="propname">{{item.propertyName}}</p>
       <p id="price">Price : {{item.propertyPricePerNight | currency}}</p>
       <p id="rating">bla bla bla</p>
@@ -36,6 +39,5 @@
 
 
 
-  </div>
+    </div>
 </section>
-
