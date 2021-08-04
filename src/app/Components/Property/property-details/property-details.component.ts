@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Property } from 'src/app/Modules/property';
 import { PersonalInfoService } from './../../../Services/personal-info.service';
 import { PropertyImagesService } from 'src/app/Services/property-images.service';
+import { Dto } from 'src/app/Modules/DTO/Dto';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class PropertyDetailsComponent implements OnInit {
   telphone:string="0101155555";
   imgs !: any[];
   twoimgs !: any[]
-   propertydetails:any;
+   propertydetails:Dto = new Dto();
+   propertyImages:any;
    userinfo:any;
   isReadMore = true;
   propId :number = 0;
@@ -40,9 +42,10 @@ trylog(){
     this.route.params.subscribe((params) => {
         let id = params['id'];
         this.propId =id;
-        this.probertyserv.GetProperty(id).subscribe(a=>{ console.log(a)
+        this.probertyserv.GetProperty(id).subscribe((a:any)=>{
         this.propertydetails = a ;
-        console.log(this.propertydetails)
+        this.propertyImages = this.propertydetails.propertyImages;
+        console.log(this.propertydetails, "property")
         })
 
         this.img.GetPropertyimages(id).subscribe(a=>{ console.log(a)

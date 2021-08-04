@@ -2,15 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col px-0">
-                <h1 class="my-5 py-5 title">Property Details Header</h1>
+                <h1 class="my-5 py-5 title">{{propertydetails.propertyName}}</h1>
             </div>
         </div>
     </div>
-
     <section>
         <div class="container">
             <div class="row">
-                <div *ngFor="let img of imgs" class="col-6 column allimg padingremover1">
+                <div *ngFor="let img of propertyImages" class="col-6 column allimg padingremover1">
                     <img src="https://localhost:44351/images/property/{{img.image}}">
                 </div>
 
@@ -104,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 hostcol">
-                    <img class="hostperson" src="../../../../assets/Images/person1.jpg" alt="" srcset="">
+                    <img class="hostperson" src="https://localhost:44351/images/profile/{{propertydetails.user.image}}" alt="" srcset="">
                     <h3 class="hostname">Hosted by {{propertydetails.user.fname}} </h3>
                     <div [ngClass]="{'limitTextHeight': isReadMore}">
                         <p>Born and raised in Italy, I have lived in the United States for over 20 years.I work as a Technical Program Manager at Intel. Jayson moved to Phoenix about 20 year ago and is the…</p>
@@ -116,7 +115,7 @@
                 <div class="col-lg-3 d-flex justify-content-lg-end telhost">
                     <div>
                         <p><strong>Telphone Number</strong></p>
-                        <p><small>{{userinfo.phoneNumber}}</small></p>
+                        <p><small>{{propertydetails.user.phoneNumber}}</small></p>
                     </div>
                 </div>
             </div>
