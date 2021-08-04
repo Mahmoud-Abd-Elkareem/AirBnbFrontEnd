@@ -34,8 +34,8 @@ export class PropertyService {
     //   return this.http.get(`${environment.apiUrl}/api/Property/location/${location}`);
     // }
 
-    GetProperty(id:number) : Observable<Property>{
-      return this.http.get<Property>("https://localhost:44351/api/Property/"+id)
+    GetProperty(id:number){
+      return this.http.get("https://localhost:44351/api/Property/"+id)
     }
 
     GetPropertybycity(prop:Property) : Observable<Property[]>{
