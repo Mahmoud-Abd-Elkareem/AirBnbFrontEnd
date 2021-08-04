@@ -1,12 +1,7 @@
 #cont {
     display: flex;
-    height: 1200px;
     padding-top: 80px;
     padding-bottom: 100px;
-}
-
-#Left-Side-Of-Page {
-    height: 500px;
 }
 
 img {

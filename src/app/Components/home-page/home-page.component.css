@@ -6,7 +6,7 @@ body{
 }
 .header {
   height: 650 px;
-  background-image: url("https://a0.muscache.com/im/pictures/e4a2a61c-589f-4e49-b3b8-968a6bc23389.jpg?im_w=2560");
+  background-image: url("../../../assets/Images/bgimg1.png");
   /* background : cover; */
   background-size: 100%;
   background-repeat: no-repeat;

@@ -19,13 +19,13 @@ import { AuthgurdService } from './Services/authgurd.service';
 const routes: Routes = [
   {path:'', redirectTo: 'home',pathMatch:'full'},
   {path:'home', component: HomePageComponent},
-  {path:'hosting', component: HostingComponent , 'canActivate':[AuthgurdService]},
+  {path:'hosting', component: HostingComponent },
   {path:'pay', component:PayConfirmComponent , 'canActivate':[AuthgurdService]},
   {path:'property/:id', component: PropertyDetailsComponent},
 
 
   {path:'propertyoverview', component: PropertyOverviewComponent},
-  {path:'AddProperty', component: PropertyAddComponent},
+  {path:'AddProperty', component: PropertyAddComponent , 'canActivate':[AuthgurdService]},
   {path:'nearbyprop', component: NearbyPropertyComponent},
   {path:'addpropertyimages/:id', component: AddPropertyImagesComponent},
   {path:'hostsuccess', component: HostsuccessComponent},

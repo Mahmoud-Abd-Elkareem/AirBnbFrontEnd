@@ -71,7 +71,7 @@
     <label for="exampleFormControlInput1" class="form-label">Property Price Per Night</label>
     <div class="input-group mb-3">
       <span class="input-group-text">$</span>
-      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <input type="text" class="form-control" name="PropertyPricePerNight"  #pname="ngModel" [(ngModel)]="prop.PropertyPricePerNight" aria-label="Amount (to the nearest dollar)">
       <span class="input-group-text">.00</span>
     </div><br>
   </div>
