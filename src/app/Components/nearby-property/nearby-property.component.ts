@@ -5,6 +5,8 @@ import { PropertyImagesService } from 'src/app/Services/property-images.service'
 import { PropertyService } from 'src/app/Services/property.service';
 import {Dto} from 'src/app/Modules/DTO/Dto';
 import { NotifierService } from 'angular-notifier';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -18,11 +20,12 @@ export class NearbyPropertyComponent implements OnInit {
   cityprops!:any[];
   propList:any;
   
+  
   getallproperties(){
 
     this.Propertyserv.Getallprops().subscribe(
       a=>{console.log(a);
-      let x =a.filter(item=>item.City=="kerk");
+      let x =a.filter(item=>item.City=="Alexandria");
       let y =x.filter(item => item.PropertyID== 10);
       console.log(x);
       console.log(y);
@@ -33,7 +36,7 @@ export class NearbyPropertyComponent implements OnInit {
     )
 }
 
-  constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService, private notifier:NotifierService) { }
+  constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService, private notifier:NotifierService,public _router:Router) { }
 
   prop : PropertyImages = new PropertyImages (1,"")
   propimgs !: PropertyImages[]

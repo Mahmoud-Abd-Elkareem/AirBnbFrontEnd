@@ -32,7 +32,7 @@ export class PropertyService {
     }
 
     GetProperty(id:number) : Observable<Property>{
-      return this.http.get<Property>("http://localhost:3000/property/"+id)
+      return this.http.get<Property>("https://localhost:44351/api/Property/"+id)
     }
 
     GetPropertybycity(prop:Property) : Observable<Property[]>{

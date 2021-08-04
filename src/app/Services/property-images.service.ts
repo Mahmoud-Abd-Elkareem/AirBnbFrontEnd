@@ -20,7 +20,7 @@ export class PropertyImagesService {
   })
 
   GetPropertyimages(id:number) : Observable<PropertyImages[]>{
-    return this.http.get<PropertyImages[]>("http://localhost:5000/propertyimage/"+id)
+    return this.http.get<PropertyImages[]>("https://localhost:44351/api/PropertyImage/"+id)
   }
 
   // AddPropertyImages(propimages : any , id :number) : Observable<PropertyImages[]>{
