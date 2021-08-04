@@ -117,12 +117,24 @@ export class PersonalInfoComponent implements OnInit {
     this._personalInfoService.UpdateProfileImage(profileImageFile).subscribe(
       (data:any) => {
         console.log(data);
-        if(data.succeeded){
+        if(data.result.succeeded){
           this.notifier.notify('success','Profile Image Updated Successfuly');
-          location.href = `${location.origin}`;
+          
+          //update image on navbar after updating the image.
+          var lSdata = localStorage.getItem(environment.user_data_key);
+      
+          if(lSdata !=null)
+            var userData = JSON.parse(lSdata);
+          if(userData.image != null)
+            {
+              userData.image = data.image;
+              localStorage.removeItem(environment.user_data_key);
+              localStorage.setItem(environment.user_data_key, JSON.stringify(userData));
+              location.href = `${location.origin}`;
+            }
         }
         else{
-          data.errors.forEach((e :any) => {
+          data.result.errors.forEach((e :any) => {
             this.notifier.notify('error',`${e.description}`);
           });
         }
@@ -144,6 +156,7 @@ export class PersonalInfoComponent implements OnInit {
     console.log(evt);
     console.log(evt.target.files[0]);
     console.log(Inputfile.files[0]);
+    console.log(Inputfile.files[0].name);
 
     const file = Inputfile.files[0];
     let reader = new FileReader();
