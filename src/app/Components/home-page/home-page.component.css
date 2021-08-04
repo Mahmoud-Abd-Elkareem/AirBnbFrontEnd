@@ -37,6 +37,16 @@ body{
   /* And hide the input's outline, so the form looks like the outline */
    border:none;
 }
+
+#imagecard{
+  width: 250px;
+  border-radius: 8px;
+}
+#cities{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .homeform input:focus {
   /* removing the input focus blue box. Put this on the form if you like. */
   outline: none;

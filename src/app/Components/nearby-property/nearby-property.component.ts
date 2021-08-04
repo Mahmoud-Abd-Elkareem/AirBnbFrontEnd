@@ -22,23 +22,8 @@ export class NearbyPropertyComponent implements OnInit {
 
 
 
-  // propList:any[] = [{}];
   location:string | null ="";
 
-  // getallproperties(){
-
-  //   this.Propertyserv.getPropertList().subscribe(
-  //     (a:any)=>{
-  //       this.notifier.notify('success','all properties are loadded successfuly');
-  //       // console.log(a);
-  //       this.allprops = a;
-  //     },
-  //     e=>{
-  //       console.log(e);
-  //       this.notifier.notify('error','faild to get the all properties, Something went wrong');
-  //     }
-  //   )
-  // }
 
   constructor(public propertyimgserv : PropertyImagesService , public Propertyserv:PropertyService, private notifier:NotifierService,public _router:Router) { }
 
@@ -64,6 +49,7 @@ export class NearbyPropertyComponent implements OnInit {
  overlays : google.maps.Marker[] =[];
 
  ngOnInit(): void {
+
   this.location = new URLSearchParams (window.location.search).get('location');
   const min = new URLSearchParams (window.location.search).get('min');
   const max = new URLSearchParams (window.location.search).get('max');
@@ -71,6 +57,9 @@ export class NearbyPropertyComponent implements OnInit {
     (a:any)=>{
       this.notifier.notify('success','all properties are loadded successfuly');
       this.allprops = a;
+  setTimeout(()=> { // map will need some time to load
+      this.map.fitBounds(bounds); // Map object used directly
+  }, 1000);
 
       if (this.location != ""){
         this.notifier.notify('success',` location , ${this.location}`);
@@ -84,6 +73,21 @@ export class NearbyPropertyComponent implements OnInit {
         this.notifier.notify('success',`max ,${max}`);
         this.allprops=this.allprops.filter(p=>p.propertyPricePerNight < Number(max));
       }
+      this.allprops.forEach(prop=>{
+        this.overlays.push(new google.maps.Marker(
+          {
+            position: { lat :  parseFloat(prop.propertylatitude ) , lng: parseFloat(prop.propertyLongitude)},
+            title : prop.propertyDescription ,
+              icon: iconBase + "info-i_maps.png",
+          }
+          )
+          )
+      });
+    // ... extend bounds
+    this.overlays.forEach(marker => {
+      bounds.extend(marker.getPosition());
+  });
+
     },
     e=>{
       console.log(e);
@@ -96,29 +100,6 @@ export class NearbyPropertyComponent implements OnInit {
   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
     let bounds = new google.maps.LatLngBounds();
     this.propertyimgserv.GetPropertyimages(this.prop.PropertId).subscribe(a=>this.propimgs=a)
-   this.Propertyserv.Getallprops().subscribe((a:any) =>
-    {
-        this.properties = a;
-        this.properties.forEach(prop=>{
-          this.overlays.push(new google.maps.Marker(
-            {
-              position: { lat :  parseFloat(prop.propertylatitude ) , lng: parseFloat(prop.propertyLongitude)},
-              title : prop.PropertyDescription ,
-                icon: iconBase + "info-i_maps.png",
-            }
-            )
-            )
-        });
-      // ... extend bounds
-      this.overlays.forEach(marker => {
-        bounds.extend(marker.getPosition());
-    });
-
-    setTimeout(()=> { // map will need some time to load
-        this.map.fitBounds(bounds); // Map object used directly
-    }, 1000);
-
-    });
 
     }
     handleOverlayClick(event : any) {
