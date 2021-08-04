@@ -3,23 +3,21 @@
     <div id="Left-Side-Of-Page">
         <p id="title">Stays in {{location}}</p>
         <div id="cont2">
+            <div id="property" *ngFor="let item of allprops; let i = index ;">
+                <!--*ngFor="let prop of properties"!-->
+                <ngb-carousel id="carso">
+                    <ng-template ngbSlide *ngFor="let propimgs of allprops[i].propertyImages">
+                        <!--*ngFor="let propimgs of propimgs"!-->
 
-          <div id="property" *ngFor="let item of allprops; let i = index ;">
-            <!--*ngFor="let prop of properties"!-->
-            <ngb-carousel id="carso">
-                <ng-template ngbSlide *ngFor="let propimgs of allprops[i].propertyImages">
-                    <!--*ngFor="let propimgs of propimgs"!-->
+                        <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
+                            <div class="picsum-img-wrapper">
+                                <img src="https://localhost:44351/images/property/{{propimgs.image}}" alt="">
+                                <!--/[src]="propimgs"/!-->
+                            </div>
+                        </a>
 
-                    <a href="https://www.google.com" target="_blank" rel="nofollow noopener noreferrer">
-                        <div class="picsum-img-wrapper">
-                            <img src="https://localhost:44351/images/property/{{propimgs.image}}" alt="">
-                            <!--/[src]="propimgs"/!-->
-                        </div>
-                    </a>
-
-                </ng-template>
-            </ngb-carousel>
-
+                    </ng-template>
+                </ngb-carousel>
             <div id="propdesc">
                 <div class="card" style="width: 100%;">
                     <div class="card-body">
