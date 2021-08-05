@@ -127,10 +127,11 @@ section{
 }
 .para{
   color: white;
-  font-size: 55px;
+  font-size:55px;
   font-weight: 700;
-  line-height: 55px;
-  letter-spacing: -0.01em;
+  line-height: 60px;
+
+  width: 400px;
 }
 .para2{
   z-index: 9999999;
